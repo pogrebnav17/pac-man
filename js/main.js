@@ -1,37 +1,68 @@
 console.log("main.js connected");
 
 // create the board
-var $board = $('.board');
-var history = [];
+var $board;
+var scoreHistory = [];
 var score = 0;
 var $scoreBoard = $('#score');
 
-for (i = 0; i < 400; i++) {
-  var $squareDiv = $('<div>').addClass('square');
-  var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
-  $squareDiv.append($circleDiv);
-  $squareDiv.attr('id', i);
-  $board.append($squareDiv);
+var createBoard = function() {
+  $board = $('<div>').addClass('board');
+  for (i = 0; i < 400; i++) {
+    var $squareDiv = $('<div>').addClass('square');
+    var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
+    $squareDiv.append($circleDiv);
+    $squareDiv.attr('id', i);
+    $board.append($squareDiv);
+  }
+  $('.container').prepend($board);
+}
+var pacmanPosition;
+var $pacman;
+var $square;
+var $ghost;
+var ghostPosition;
+var $ghostSquare;
+
+
+function initializeGame() {
+  createBoard(); // create board
+  score = 0;
+  //initialize pacman position
+  pacmanPosition = 0;
+  $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
+  $square = $(`#${pacmanPosition}`);
+  $(`#circle-${pacmanPosition}`).remove();
+  $square.append($pacman);
+  console.log('pacmanPosition', pacmanPosition);
+
+  //intialize ghost position
+  ghostPosition = 399;
+  $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
+  ghostPosition = 399;
+  $ghostSquare = $(`#${ghostPosition}`);
+  $(`#circle-${ghostPosition}`).remove();
+  $ghostSquare.append($ghost);
 }
 
+initializeGame();
 
-// initial positioning of pacman
-var pacmanPosition = 0;
-var $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
-var $square = $(`#${pacmanPosition}`);
-$(`#circle-${pacmanPosition}`).remove();
-$square.append($pacman);
-console.log('pacmanPosition', pacmanPosition);
-
-// initial positioning of the ghost
-var $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
-var ghostPosition = 399;
-var $ghostSquare = $(`#${ghostPosition}`);
-$(`#circle-${ghostPosition}`).remove();
-$ghostSquare.append($ghost);
-
-
-
+var ghost = {
+  checkGhost: function() {
+    // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
+    if (pacmanPosition === ghostPosition) {
+      console.log(pacmanPosition);
+      console.log(ghostPosition);
+      alert("You ran into a ghost! You lose!");
+      $pacman.remove();
+      scoreHistory.push(score);
+      console.log('score history: ', scoreHistory);
+      $board.remove();
+      initializeGame();
+    }
+    // restart game
+  }
+}
 //pacman object allow pacman to move accross the board
 var pacman = {
   move: function() {
@@ -46,9 +77,9 @@ var pacman = {
     $(`#circle-${pacmanPosition}`).remove();
     score ++;
     console.log('score', score);
-    $scoreBoard.text(`Score: ${score}`);
     // check if you ran into a ghost
-    checkGhost();
+    ghost.checkGhost();
+    $scoreBoard.text(`Score: ${score}`);
 
   },
   // follow 4 methods change the position of the pacman according to the grid and the direction
@@ -88,13 +119,5 @@ document.onkeydown = function(event) {
   else if (event.keyCode == '38') {
     // up arrow
     pacman.moveUp();
-  }
-}
-
-function checkGhost() {
-  if (pacmanPosition === ghostPosition) {
-    console.log(pacmanPosition);
-    console.log(ghostPosition);
-    alert("You ran into a ghost! You lose!");
   }
 }
