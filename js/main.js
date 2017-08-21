@@ -39,9 +39,26 @@ var game = {
     ghostPosition = 399;
     $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
     ghostPosition = 399;
-    $ghostSquare = $(`#${ghostPosition}`);
-    $(`#circle-${ghostPosition}`).remove();
-    $ghostSquare.append($ghost);
+
+    function moveGhost() {
+      $(`#circle-${ghostPosition}`).show();
+      ghostPosition --;
+      $ghostSquare = $(`#${ghostPosition}`);
+      $(`#circle-${ghostPosition}`).hide();
+      $ghostSquare.append($ghost);
+      $ghost.fadeOut(500, function() {
+          var maxLeft = 200 - 10;
+          var maxTop = 200 - 10;
+          var leftPos = Math.floor(Math.random() * (maxLeft + 10))
+          var topPos = Math.floor(Math.random() * (maxTop + 10))
+
+          $ghost.css({ left: leftPos, top: topPos }).fadeIn(500);
+      });
+      ghost.checkGhost();
+    };
+    moveGhost();
+    setInterval(moveGhost, 1000);
+
   },
   addPoint: function() {
     var $squareWithCircle = $(`#circle-${pacmanPosition}`);
