@@ -1,0 +1,17 @@
+Minimal Viable Product(MVP)
+
+The MVP will have the following features:
+1. 20x20 game board with each square having a red circle inside.
+2. A Pac-man (represented by a yellow square) which can be move by the user using the arrow keys.
+3. User's score increases every time Pac-man jumps to a square with a red dot on it.
+4. Red dot disappears once the Pac-man has "eaten it".
+5. Have a scorecard which displays the user's score.
+6. Save users scores and display the highest score on the score card.
+7. The ghost randomly moving across the screen.
+8. User loses when the Pac-man runs into the ghost and the game restarts.
+
+
+
+Bonus features include:
+1. Make the Pac-man and the ghost be little gifs that move around the screen.
+2. Give the ghost ability to know where the Pac-man is and move towards him. 

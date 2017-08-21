@@ -2,16 +2,16 @@ console.log("main.js connected");
 
 // create the board
 var $board = $('.board');
-
+var history = [];
 var score = 0;
 var $scoreBoard = $('#score');
 
 for (i = 0; i < 400; i++) {
-    var $squareDiv = $('<div>').addClass('square');
-    var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
-    $squareDiv.append($circleDiv);
-    $squareDiv.attr('id', i);
-    $board.append($squareDiv);
+  var $squareDiv = $('<div>').addClass('square');
+  var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
+  $squareDiv.append($circleDiv);
+  $squareDiv.attr('id', i);
+  $board.append($squareDiv);
 }
 
 
