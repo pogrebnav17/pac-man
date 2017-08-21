@@ -1,22 +1,10 @@
 console.log("main.js connected");
 
-// create the board
+// GLOBAL VARIABLES
 var $board;
 var scoreHistory = [];
 var score = 0;
 var $scoreBoard = $('#score');
-
-var createBoard = function() {
-  $board = $('<div>').addClass('board');
-  for (i = 0; i < 400; i++) {
-    var $squareDiv = $('<div>').addClass('square');
-    var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
-    $squareDiv.append($circleDiv);
-    $squareDiv.attr('id', i);
-    $board.append($squareDiv);
-  }
-  $('.container').prepend($board);
-}
 var pacmanPosition;
 var $pacman;
 var $square;
@@ -24,28 +12,38 @@ var $ghost;
 var ghostPosition;
 var $ghostSquare;
 
+var game = {
+  createBoard: function() {
+    $board = $('<div>').addClass('board');
+    for (i = 0; i < 400; i++) {
+      var $squareDiv = $('<div>').addClass('square');
+      var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
+      $squareDiv.append($circleDiv);
+      $squareDiv.attr('id', i);
+      $board.append($squareDiv);
+    }
+    $('.container').prepend($board);
+  },
+  initializeGame: function() {
+    game.createBoard(); // create board
+    score = 0;
+    //initialize pacman position
+    pacmanPosition = 0;
+    $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
+    $square = $(`#${pacmanPosition}`);
+    $(`#circle-${pacmanPosition}`).remove();
+    $square.append($pacman);
+    console.log('pacmanPosition', pacmanPosition);
 
-function initializeGame() {
-  createBoard(); // create board
-  score = 0;
-  //initialize pacman position
-  pacmanPosition = 0;
-  $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
-  $square = $(`#${pacmanPosition}`);
-  $(`#circle-${pacmanPosition}`).remove();
-  $square.append($pacman);
-  console.log('pacmanPosition', pacmanPosition);
-
-  //intialize ghost position
-  ghostPosition = 399;
-  $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
-  ghostPosition = 399;
-  $ghostSquare = $(`#${ghostPosition}`);
-  $(`#circle-${ghostPosition}`).remove();
-  $ghostSquare.append($ghost);
+    //initialize ghost position
+    ghostPosition = 399;
+    $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
+    ghostPosition = 399;
+    $ghostSquare = $(`#${ghostPosition}`);
+    $(`#circle-${ghostPosition}`).remove();
+    $ghostSquare.append($ghost);
+  }
 }
-
-initializeGame();
 
 var ghost = {
   checkGhost: function() {
@@ -58,9 +56,8 @@ var ghost = {
       scoreHistory.push(score);
       console.log('score history: ', scoreHistory);
       $board.remove();
-      initializeGame();
+      game.initializeGame();
     }
-    // restart game
   }
 }
 //pacman object allow pacman to move accross the board
@@ -100,6 +97,9 @@ var pacman = {
     pacman.move();
   }
 }
+
+// START GAME
+game.initializeGame();
 
 // move the pacman depending to the arrow key pressed by user
 document.onkeydown = function(event) {
