@@ -1,0 +1,37 @@
+.board {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+.square {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border: solid 1px black;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.circle {
+  background-color: red;
+  border-radius: 50%;
+  width: 50%;
+  margin: 25% auto;
+}
+
+.circle:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+#pacman, #ghost {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  border: solid 1px black;
+}
