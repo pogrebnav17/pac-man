@@ -10,6 +10,9 @@ The MVP will have the following features:
 7. The ghost randomly moving across the screen.
 8. User loses when the Pac-man runs into the ghost and the game restarts.
 9. Have a "New Game" button which asks the user if the are sure they want to quit.
+10. Make the Pac-man and the ghost be little gifs that move around the screen.
+11. If Pac-man runs off the screen have him return on the same line on the opposite side of the screen.
+12. Confine the ghost location to the board. 
 
 
 
@@ -17,10 +20,9 @@ The MVP will have the following features:
 BONUS
 
 Bonus features may include:
-1. Make the Pac-man and the ghost be little gifs that move around the screen.
-2. Give the ghost ability to know where the Pac-man is and move towards him.
-3. Allow user to login.
-4. Add levels with increased difficulty.
-5. Use firebase to keep a record of user's best scores and display top 5 user's usernames and scores (allowing competition between users).
-6. Add sound effects.
-7. Add a map with levels displaying which level the user left off on. 
+1. Give the ghost ability to know where the Pac-man is and move towards him.
+2. Allow user to login.
+3. Add levels with increased difficulty.
+4. Use firebase to keep a record of user's best scores and display top 5 user's usernames and scores (allowing competition between users).
+5. Add sound effects.
+6. Add a map with levels displaying which level the user left off on.
