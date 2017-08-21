@@ -25,6 +25,7 @@ var game = {
     $('.container').prepend($board);
   },
   initializeGame: function() {
+    // clearInterval(moveGhost());
     game.createBoard(); // create board
     score = 0;
     //initialize pacman position
@@ -39,26 +40,7 @@ var game = {
     ghostPosition = 399;
     $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
     ghostPosition = 399;
-
-    function moveGhost() {
-      $(`#circle-${ghostPosition}`).show();
-      ghostPosition --;
-      $ghostSquare = $(`#${ghostPosition}`);
-      $(`#circle-${ghostPosition}`).hide();
-      $ghostSquare.append($ghost);
-      $ghost.fadeOut(500, function() {
-          var maxLeft = 200 - 10;
-          var maxTop = 200 - 10;
-          var leftPos = Math.floor(Math.random() * (maxLeft + 10))
-          var topPos = Math.floor(Math.random() * (maxTop + 10))
-
-          $ghost.css({ left: leftPos, top: topPos }).fadeIn(500);
-      });
-      ghost.checkGhost();
-    };
-    moveGhost();
-    setInterval(moveGhost, 1000);
-
+    ghost.moveGhost();
   },
   addPoint: function() {
     var $squareWithCircle = $(`#circle-${pacmanPosition}`);
@@ -87,6 +69,25 @@ var ghost = {
       $board.remove();
       game.initializeGame();
     }
+  },
+  moveGhost: function() {
+    clearInterval(this.interval);
+    this.interval = setInterval(function() {
+      $(`#circle-${ghostPosition}`).show();
+      ghostPosition --;
+      $ghostSquare = $(`#${ghostPosition}`);
+      $(`#circle-${ghostPosition}`).hide();
+      $ghostSquare.append($ghost);
+
+      $ghost.fadeOut(500, function() {
+        var maxLeft = 200 - 10;
+        var maxTop = 200 - 10;
+        var leftPos = Math.floor(Math.random() * (maxLeft + 10))
+        var topPos = Math.floor(Math.random() * (maxTop + 10))
+        $ghost.css({ left: leftPos, top: topPos }).fadeIn(500);
+      });
+      ghost.checkGhost();
+    }, 1000);
   }
 }
 //pacman object allow pacman to move accross the board
