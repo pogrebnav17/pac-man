@@ -42,6 +42,18 @@ var game = {
     $ghostSquare = $(`#${ghostPosition}`);
     $(`#circle-${ghostPosition}`).remove();
     $ghostSquare.append($ghost);
+  },
+  addPoint: function() {
+    var $squareWithCircle = $(`#circle-${pacmanPosition}`);
+    // remove the red dot and add 1 point to the score
+    if (!$squareWithCircle.is(':hidden')) {
+      $(`#circle-${pacmanPosition}`).hide();
+      score ++;
+      console.log('score', score);
+    }
+    else {
+      console.log("you\'ve already collected this point");
+    }
   }
 }
 
@@ -69,15 +81,10 @@ var pacman = {
     $square = $(`#${pacmanPosition}`);
     $square.append($pacman);
     console.log('pacmanPosition', pacmanPosition);
-
-    // remove the red dot and add 1 point to the score
-    $(`#circle-${pacmanPosition}`).remove();
-    score ++;
-    console.log('score', score);
+    game.addPoint();
     // check if you ran into a ghost
     ghost.checkGhost();
     $scoreBoard.text(`Score: ${score}`);
-
   },
   // follow 4 methods change the position of the pacman according to the grid and the direction
   moveRight: function() {
