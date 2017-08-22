@@ -30,7 +30,8 @@ var game = {
     score = 0;
     //initialize pacman position
     pacmanPosition = 0;
-    $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
+    $pacman = $('<div>').attr('id', 'pacman');
+    $pacman.append('<img src=gifs/pacman.gif alt=pacman>');
     $square = $(`#${pacmanPosition}`);
     $(`#circle-${pacmanPosition}`).remove();
     $square.append($pacman);
@@ -38,7 +39,8 @@ var game = {
 
     //initialize ghost position
     ghostPosition = 399;
-    $ghost = $('<div>').attr('style', 'background-color: pink;').attr('id', 'ghost');
+    $ghost = $('<div>').attr('id', 'ghost');
+    $ghost.append('<img src=gifs/ghost.gif alt=ghost>');
     ghostPosition = 399;
     ghost.moveGhost();
   },
@@ -98,7 +100,8 @@ var pacman = {
   move: function() {
     // removes pacman from the board and re-renders pacman at the new given postion
     $pacman.remove();
-    $pacman = $('<div>').attr('style', 'background-color: yellow;').attr('id', 'pacman');
+    $pacman = $('<div>').attr('id', 'pacman');
+    $pacman.append('<img src=gifs/pacman.gif alt=pacman>');
     $square = $(`#${pacmanPosition}`);
     $square.append($pacman);
     console.log('pacmanPosition', pacmanPosition);
@@ -150,7 +153,7 @@ document.onkeydown = function(event) {
     pacman.moveUp();
   }
   else if (event.keyCode == '32') {
-    // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses. 
+    // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses.
     if (spacebarCount % 2 === 0) {
       ghost.pause();
       spacebarCount ++;

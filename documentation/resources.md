@@ -7,3 +7,7 @@ Project Resources
 - Red circles inside the squares: https://stackoverflow.com/questions/36921896/aspect-ratio-circle-inside-square-div
 
 - Fade in fade out of ghost square: https://stackoverflow.com/questions/10385950/how-to-get-a-div-to-randomly-move-around-a-page-using-jquery-or-css
+
+- Pac-man gif: https://giphy.com/gifs/pacman-E3hcDoDfU9Fu/
+
+- Ghost gif: https://giphy.com/gifs/pac-man-2g70BcKeKzRQc/

@@ -35,3 +35,11 @@
   box-sizing: border-box;
   border: solid 1px black;
 }
+
+
+img {
+  width: 8px;
+  height: 8px;
+  margin-bottom: 15px;
+  margin-right: 2px;
+}
