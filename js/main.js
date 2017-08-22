@@ -88,6 +88,9 @@ var ghost = {
       });
       ghost.checkGhost();
     }, 1000);
+  },
+  pause: function() {
+    clearInterval(this.interval);
   }
 }
 //pacman object allow pacman to move accross the board
@@ -126,6 +129,7 @@ var pacman = {
 // START GAME
 game.initializeGame();
 
+var spacebarCount = 0;
 // move the pacman depending to the arrow key pressed by user
 document.onkeydown = function(event) {
   event.preventDefault();
@@ -144,5 +148,16 @@ document.onkeydown = function(event) {
   else if (event.keyCode == '38') {
     // up arrow
     pacman.moveUp();
+  }
+  else if (event.keyCode == '32') {
+    // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses. 
+    if (spacebarCount % 2 === 0) {
+      ghost.pause();
+      spacebarCount ++;
+    }
+    else {
+      ghost.moveGhost();
+      spacebarCount --;
+    }
   }
 }
