@@ -11,20 +11,31 @@ var $square;
 var $ghost;
 var ghostPosition;
 var $ghostSquare;
-var squareLocation = {};
+var locations = {};
+
+
 var game = {
   createBoard: function() {
     $board = $('<div>').addClass('board');
-
+    var squareLocation = {};
+    var rows = [];
+    var columns = [];
     for (var row = 0; row < 20; row ++) {
       for (var col = 0; col < 20; col ++) {
         var $squareDiv = $('<div>').addClass(`square row${row} column${col}`);
         var $circleDiv = $('<div>').addClass('circle');
+        rows.push(row);
+        columns.push(col);
         $squareDiv.append($circleDiv);
         $board.append($squareDiv);
       }
     }
+    for (let i = 0; i < 400; i ++) {
+      locations[i] = {row: rows[i], column: columns[i]};
+    }
     $('.container').prepend($board);
+    console.log('locations', locations);
+    console.log('locations[208].row: ', locations[208].column);
   },
   initializeGame: function() {
     game.createBoard(); // create board
@@ -43,13 +54,14 @@ var game = {
     $square = $(`#${pacmanPosition}`);
     $(`#circle-${pacmanPosition}`).remove();
     $square.append($pacman);
-    console.log('pacmanPosition', pacmanPosition);
 
     //initialize ghost position
     ghostPosition = 399;
     $ghost = $('<div>').attr('id', 'ghost');
     $ghost.append('<img src=gifs/ghost.gif alt=ghost>');
-    ghostPosition = 399;
+    $ghostSquare = $(`#${ghostPosition}`);
+    $(`#circle-${ghostPosition}`).hide();
+    $ghostSquare.append($ghost);
     ghost.moveGhost();
   },
   addPoint: function() {
@@ -58,7 +70,6 @@ var game = {
     if (!$squareWithCircle.is(':hidden')) {
       $(`#circle-${pacmanPosition}`).hide();
       score ++;
-      console.log('score', score);
     }
     else {
       console.log("you\'ve already collected this point");
@@ -89,14 +100,38 @@ var ghost = {
       // $(`#circle-${ghostPosition}`).hide();
       // $ghostSquare.append($ghost);
 
-      // insert moving logic here
-      // show dot at current position
-      // change position based on location of pac-man
-        // increment by one
-        // hide the dot
-        //append the ghost
-      
+      // get pac-man position
+      console.log('pacmanPosition', pacmanPosition);
 
+      // show circle in old position
+      $(`#circle-${ghostPosition}`).show();
+      // change position of ghost based on the position of the pac-man
+      // get to the same column
+      console.log('ghostPosition', ghostPosition);
+      console.log('ghost locations', locations[ghostPosition]);
+      console.log('ghost column', locations[ghostPosition].column, typeof locations[ghostPosition].column);
+      if ((locations[pacmanPosition].column) < locations[ghostPosition].column) {
+        ghostPosition --;
+      }
+      else if (locations[pacmanPosition].column > locations[ghostPosition].column) {
+        ghostPosition ++;
+      }
+      else {
+        // get to the same row
+        if (locations[pacmanPosition].row < locations[ghostPosition].row) {
+          ghostPosition -= 20;
+        }
+        else if (locations[pacmanPosition].row > locations[ghostPosition].row) {
+          ghostPosition += 20;
+        }
+      }
+      // hide the circle and move the ghost to the new position
+      $ghostSquare = $(`#${ghostPosition}`);
+      $(`#circle-${ghostPosition}`).hide();
+      $ghostSquare.append($ghost);
+
+
+      // Adds effect for the ghost gif to fade in and fade out as it move from one square to the next
       $ghost.fadeOut(500, function() {
         var maxLeft = 200 - 10;
         var maxTop = 200 - 10;
@@ -120,7 +155,6 @@ var pacman = {
     $pacman.append('<img src=gifs/pacman.gif alt=pacman>');
     $square = $(`#${pacmanPosition}`);
     $square.append($pacman);
-    console.log('pacmanPosition', pacmanPosition);
     game.addPoint();
     // check if you ran into a ghost
     ghost.checkGhost();
