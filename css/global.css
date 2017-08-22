@@ -48,3 +48,11 @@ img {
 .buttons {
   margin-bottom: 10px;
 }
+
+.game-div {
+  float: left;
+}
+
+#instructions {
+  margin-left: 10%;
+}
