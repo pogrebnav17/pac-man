@@ -4,7 +4,9 @@ console.log("main.js connected");
 var $board;
 var scoreHistory = [];
 var score = 0;
+var highestScore = 0;
 var $scoreBoard = $('#score');
+var $highestScore = $('#highest');
 var pacmanPosition;
 var $pacman;
 var $square;
@@ -47,6 +49,7 @@ var game = {
       $circleDivs[i].id = 'circle-' + i;
     }
     score = 0;
+    game.setHighestScore();
     //initialize pacman position
     pacmanPosition = 0;
     $pacman = $('<div>').attr('id', 'pacman');
@@ -74,6 +77,12 @@ var game = {
     else {
       console.log("you\'ve already collected this point");
     }
+  },
+  setHighestScore: function() {
+    if (scoreHistory.length > 0) {
+      highestScore = Math.max.apply(null, scoreHistory);
+    }
+    $highestScore.text(`Highest score: ${highestScore}`);
   }
 }
 
@@ -81,12 +90,9 @@ var ghost = {
   checkGhost: function() {
     // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
     if (pacmanPosition === ghostPosition) {
-      console.log(pacmanPosition);
-      console.log(ghostPosition);
-      alert("You ran into a ghost! You lose!");
+      console.log("You ran into a ghost! You lose!");
       $pacman.remove();
       scoreHistory.push(score);
-      console.log('score history: ', scoreHistory);
       $board.remove();
       game.initializeGame();
     }
