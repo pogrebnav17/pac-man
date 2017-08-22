@@ -3,6 +3,7 @@ console.log("Game.js connected");
 
 var Game = (function() {
   return {
+    $scoreBoard: $('#score'),
     $square: null,
     score: 0,
     highestScore: 0,
@@ -17,6 +18,7 @@ var Game = (function() {
         $circleDivs[i].id = 'circle-' + i;
       }
       Game.score = 0;
+      Game.$scoreBoard.text(`Score: ${Game.score}`);
       Game.setHighestScore();
       //initialize pacman position
       Pacman.pacmanPosition = 0;
@@ -41,8 +43,7 @@ var Game = (function() {
       if (!$squareWithCircle.is(':hidden')) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
         Game.score ++;
-        var $scoreBoard = $('#score');
-        $scoreBoard.text(`Score: ${Game.score}`);
+        Game.$scoreBoard.text(`Score: ${Game.score}`);
       }
     },
     setHighestScore: function() {
