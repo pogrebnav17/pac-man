@@ -83,6 +83,12 @@ var game = {
       highestScore = Math.max.apply(null, scoreHistory);
     }
     $highestScore.text(`Highest score: ${highestScore}`);
+  },
+  newGame: function() {
+    $pacman.remove();
+    scoreHistory.push(score);
+    $board.remove();
+    game.initializeGame();
   }
 }
 
@@ -91,10 +97,7 @@ var ghost = {
     // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
     if (pacmanPosition === ghostPosition) {
       console.log("You ran into a ghost! You lose!");
-      $pacman.remove();
-      scoreHistory.push(score);
-      $board.remove();
-      game.initializeGame();
+      game.newGame();
     }
   },
   moveGhost: function() {
@@ -208,3 +211,10 @@ document.onkeydown = function(event) {
     }
   }
 }
+
+// button listeners
+var $newGameButton = $('#new-game');
+console.log($newGameButton);
+$newGameButton.on('click', function() {
+  game.newGame()
+});
