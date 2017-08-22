@@ -11,3 +11,6 @@ Project Resources
 - Pac-man gif: https://giphy.com/gifs/pacman-E3hcDoDfU9Fu/
 
 - Ghost gif: https://giphy.com/gifs/pac-man-2g70BcKeKzRQc/
+
+Other resources:
+https://www.w3school.com
