@@ -24,20 +24,11 @@ var game = {
         $board.append($squareDiv);
       }
     }
-
-    // for (var i = 0; i < 400; i++) {
-    //   var row = Math.floor(i / 20);
-    //   var $squareDiv = $('<div>').addClass(`square row${row}`);
-    //   var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
-    //   $squareDiv.append($circleDiv);
-    //   $squareDiv.attr('id', i);
-    //   $board.append($squareDiv);
-    // }
     $('.container').prepend($board);
   },
   initializeGame: function() {
-    // clearInterval(moveGhost());
     game.createBoard(); // create board
+    // label each square with its number
     var $squareDivs = $('.board .square');
     var $circleDivs = $('.circle');
     for (var i = 0; i < $squareDivs.length; i ++) {
@@ -92,11 +83,19 @@ var ghost = {
   moveGhost: function() {
     clearInterval(this.interval);
     this.interval = setInterval(function() {
-      $(`#circle-${ghostPosition}`).show();
-      ghostPosition --;
-      $ghostSquare = $(`#${ghostPosition}`);
-      $(`#circle-${ghostPosition}`).hide();
-      $ghostSquare.append($ghost);
+      // $(`#circle-${ghostPosition}`).show();
+      // ghostPosition --;
+      // $ghostSquare = $(`#${ghostPosition}`);
+      // $(`#circle-${ghostPosition}`).hide();
+      // $ghostSquare.append($ghost);
+
+      // insert moving logic here
+      // show dot at current position
+      // change position based on location of pac-man
+        // increment by one
+        // hide the dot
+        //append the ghost
+      
 
       $ghost.fadeOut(500, function() {
         var maxLeft = 200 - 10;
