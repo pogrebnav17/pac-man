@@ -33,7 +33,7 @@ var game = {
     for (let i = 0; i < 400; i ++) {
       locations[i] = {row: rows[i], column: columns[i]};
     }
-    $('.container').prepend($board);
+    $('#board').prepend($board);
     console.log('locations', locations);
     console.log('locations[208].row: ', locations[208].column);
   },
@@ -94,22 +94,10 @@ var ghost = {
   moveGhost: function() {
     clearInterval(this.interval);
     this.interval = setInterval(function() {
-      // $(`#circle-${ghostPosition}`).show();
-      // ghostPosition --;
-      // $ghostSquare = $(`#${ghostPosition}`);
-      // $(`#circle-${ghostPosition}`).hide();
-      // $ghostSquare.append($ghost);
-
-      // get pac-man position
-      console.log('pacmanPosition', pacmanPosition);
-
       // show circle in old position
       $(`#circle-${ghostPosition}`).show();
       // change position of ghost based on the position of the pac-man
       // get to the same column
-      console.log('ghostPosition', ghostPosition);
-      console.log('ghost locations', locations[ghostPosition]);
-      console.log('ghost column', locations[ghostPosition].column, typeof locations[ghostPosition].column);
       if ((locations[pacmanPosition].column) < locations[ghostPosition].column) {
         ghostPosition --;
       }
