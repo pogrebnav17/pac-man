@@ -13,10 +13,11 @@
   border: solid 1px black;
   margin: 0;
   box-sizing: border-box;
+  background-color: black;
 }
 
 .circle {
-  background-color: red;
+  background-color: white;
   border-radius: 50%;
   width: 50%;
   margin: 25% auto;

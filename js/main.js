@@ -11,22 +11,39 @@ var $square;
 var $ghost;
 var ghostPosition;
 var $ghostSquare;
-
+var squareLocation = {};
 var game = {
   createBoard: function() {
     $board = $('<div>').addClass('board');
-    for (i = 0; i < 400; i++) {
-      var $squareDiv = $('<div>').addClass('square');
-      var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
-      $squareDiv.append($circleDiv);
-      $squareDiv.attr('id', i);
-      $board.append($squareDiv);
+
+    for (var row = 0; row < 20; row ++) {
+      for (var col = 0; col < 20; col ++) {
+        var $squareDiv = $('<div>').addClass(`square row${row} column${col}`);
+        var $circleDiv = $('<div>').addClass('circle');
+        $squareDiv.append($circleDiv);
+        $board.append($squareDiv);
+      }
     }
+
+    // for (var i = 0; i < 400; i++) {
+    //   var row = Math.floor(i / 20);
+    //   var $squareDiv = $('<div>').addClass(`square row${row}`);
+    //   var $circleDiv = $('<div>').addClass('circle').attr('id', `circle-${i}`);
+    //   $squareDiv.append($circleDiv);
+    //   $squareDiv.attr('id', i);
+    //   $board.append($squareDiv);
+    // }
     $('.container').prepend($board);
   },
   initializeGame: function() {
     // clearInterval(moveGhost());
     game.createBoard(); // create board
+    var $squareDivs = $('.board .square');
+    var $circleDivs = $('.circle');
+    for (var i = 0; i < $squareDivs.length; i ++) {
+      $squareDivs[i].id = i;
+      $circleDivs[i].id = 'circle-' + i;
+    }
     score = 0;
     //initialize pacman position
     pacmanPosition = 0;
