@@ -15,8 +15,11 @@ var Ghost = (function() {
     moveGhost: function() {
       clearInterval(this.interval);
       this.interval = setInterval(function() {
-        // show circle in old position
-        $(`#circle-${Ghost.ghostPosition}`).show();
+        // remove current ghost, set the square that the ghost will be appended to with position relative
+        Ghost.$ghost.remove();
+        Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');;
+
+        // $(`#circle-${Ghost.ghostPosition}`).show();
         // change position of ghost based on the position of the pac-man
         // get to the same column
         if ((Board.locations[Pacman.pacmanPosition].column) < Board.locations[Ghost.ghostPosition].column) {
@@ -34,20 +37,10 @@ var Ghost = (function() {
             Ghost.ghostPosition += 20;
           }
         }
-        // hide the circle and move the ghost to the new position
-        Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`);
-        $(`#circle-${Ghost.ghostPosition}`).hide();
+        // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
+        Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-80%)');
+        Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost>');
         Ghost.$ghostSquare.append(Ghost.$ghost);
-
-
-        // Adds effect for the ghost gif to fade in and fade out as it move from one square to the next
-        Ghost.$ghost.fadeOut(500, function() {
-          var maxLeft = 200 - 10;
-          var maxTop = 200 - 10;
-          var leftPos = Math.floor(Math.random() * (maxLeft + 10))
-          var topPos = Math.floor(Math.random() * (maxTop + 10))
-          Ghost.$ghost.css({ left: leftPos, top: topPos }).fadeIn(500);
-        });
         Ghost.checkGhost();
       }, 1000);
     },

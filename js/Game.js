@@ -30,10 +30,10 @@ var Game = (function() {
 
       //initialize ghost position
       Ghost.ghostPosition = 399;
-      Ghost.$ghost = $('<div>').attr('id', 'ghost');
+      Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-80%)');
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost>');
-      Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`);
-      $(`#circle-${Ghost.ghostPosition}`).hide();
+      Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
+      // $(`#circle-${Ghost.ghostPosition}`).hide();
       Ghost.$ghostSquare.append(Ghost.$ghost);
       Ghost.moveGhost();
     },
