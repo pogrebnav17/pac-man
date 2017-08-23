@@ -17,6 +17,7 @@ var Game = (function() {
         $squareDivs[i].id = i;
         $circleDivs[i].id = 'circle-' + i;
       }
+
       Game.score = 0;
       Game.$scoreBoard.text(`Score: ${Game.score}`);
       Game.setHighestScore();
@@ -30,12 +31,16 @@ var Game = (function() {
 
       //initialize ghost position
       Ghost.ghostPosition = 399;
-      Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-80%)');
+      Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
       // $(`#circle-${Ghost.ghostPosition}`).hide();
       Ghost.$ghostSquare.append(Ghost.$ghost);
       Ghost.moveGhost();
+
+      $('#20').attr('style', 'border-left: solid 5px rgb(255, 184, 151);');
+      $('#circle-20').attr('style', 'padding: 2px;');
+
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);

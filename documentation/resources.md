@@ -14,5 +14,9 @@ Project Resources
 
 - Placing ghost gif over the squares as it moves: https://discourse.wicg.io/t/position-an-element-relatively-to-another-element-from-anywhere-in-the-dom/968
 
+- Flipping and rotating pac-man image:
+https://css-tricks.com/snippets/css/flip-an-image/
+https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new-image
+
 Other resources:
 https://www.w3school.com
