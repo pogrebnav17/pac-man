@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // New Game button listener (restarts game)
   var $newGameButton = $('#new-game');
   $newGameButton.on('click', function() {
+    spacebarCount === 0
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)
