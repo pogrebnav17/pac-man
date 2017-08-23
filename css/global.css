@@ -14,14 +14,18 @@
   background-color: black;
 }
 
-.row0 {
+/*.row0 {
   border-top: solid 5px rgb(255, 184, 151);
+}*/
 
-}
+/*.row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9, .row10, .row11, .row12, .row13, .row14, .row15, .row16, .row17, .row18, .row19 {*/
+  /*border-top: solid 3px black;*/
+  /*padding-top: 4px;*/
+/*}*/
 
-.row19 {
+/*.row19 {
   border-bottom: solid 5px rgb(255, 184, 151);
-}
+}*/
 
 .circle {
   background-color: white;
@@ -38,18 +42,21 @@
 }
 
 #pacman, #ghost {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin: 0;
   box-sizing: border-box;
 }
 
 
 img {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   margin-bottom: 30px;
-  margin-right: 4px;
+}
+
+#pacman-image {
+  margin-left: 4px;
 }
 
 .buttons {
@@ -95,4 +102,39 @@ button, li {
 
 body {
   background-color: black;
+}
+
+.divy {
+  height: 400px;
+  width: 20px;
+  background-color: black;
+}
+
+#boards {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  height: 100px;
+  border-right: solid 5px rgb(255, 184, 151);
+  border-bottom: solid 5px rgb(255, 184, 151);
+}
+
+.left-small {
+  height: 20px;
+  border-right: solid 5px black;
+}
+
+.left-middle {
+  height: 180px;
+  border-right: solid 5px rgb(255, 184, 151);
+  border-bottom: solid 5px rgb(255, 184, 151);
+  border-top: solid 5px rgb(255, 184, 151);
+}
+
+.left-bottom {
+  height: 85px;
+  border-right: solid 5px rgb(255, 184, 151);
+  border-top: solid 5px rgb(255, 184, 151);
 }

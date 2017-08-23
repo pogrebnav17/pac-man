@@ -38,34 +38,34 @@ var Game = (function() {
       Ghost.$ghostSquare.append(Ghost.$ghost);
       Ghost.moveGhost();
 
-      var leftBorder = [];
-      var rightBorder = [];
-      var leftCount = 0;
-      var rightCount = 19;
-      for (let i = 0; i < 20; i ++) {
-        leftBorder.push(leftCount);
-        leftCount += 20;
-
-        rightBorder.push(rightCount);
-        rightCount += 20;
-      }
-
-      // create left board border
-      for (let i = 0; i < leftBorder.length; i ++) {
-        if (leftBorder[i] !== 100 && leftBorder[i] !== 300) {
-          $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px rgb(255, 184, 151);');
-        } else {
-          $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px black;');
-        }
-      }
-      // create right board border
-      for (let i = 0; i < rightBorder.length; i ++) {
-        if (rightBorder[i] !== 119 && rightBorder[i] !== 319) {
-          $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px rgb(255, 184, 151);');
-        } else {
-          $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px black;');
-        }
-      }
+      // var leftBorder = [];
+      // var rightBorder = [];
+      // var leftCount = 0;
+      // var rightCount = 19;
+      // for (let i = 0; i < 20; i ++) {
+      //   leftBorder.push(leftCount);
+      //   leftCount += 20;
+      //
+      //   rightBorder.push(rightCount);
+      //   rightCount += 20;
+      // }
+      //
+      // // create left board border
+      // for (let i = 0; i < leftBorder.length; i ++) {
+      //   if (leftBorder[i] !== 100 && leftBorder[i] !== 300) {
+      //     $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px rgb(255, 184, 151);');
+      //   } else {
+      //     $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px black;');
+      //   }
+      // }
+      // // create right board border
+      // for (let i = 0; i < rightBorder.length; i ++) {
+      //   if (rightBorder[i] !== 119 && rightBorder[i] !== 319) {
+      //     $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px rgb(255, 184, 151);');
+      //   } else {
+      //     $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px black;');
+      //   }
+      // }
 
     },
     addPoint: function() {

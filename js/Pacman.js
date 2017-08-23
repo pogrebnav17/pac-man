@@ -9,7 +9,6 @@ var Pacman =(function() {
       // removes pacman from the board and re-renders pacman at the new given postion
       Pacman.$pacman.remove();
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
-      // Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
       Pacman.$pacman.append(Pacman.$pacmanGif);
       Game.$square = $(`#${Pacman.pacmanPosition}`);
       Game.$square.append(Pacman.$pacman);
