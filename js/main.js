@@ -14,18 +14,34 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // move the pacman depending to the arrow key pressed by user
   document.onkeydown = function(event) {
     // only let pacman move if the game has not been paused
-    if (spacebarCount === 0) {
+    if (spacebarCount === 0 ) {
       // right arrow key
       if (event.keyCode == '39') {
         // only move right if you are within the board
-        if (Board.locations[Pacman.pacmanPosition].column < 19) {
+        if (Pacman.pacmanPosition === 119) {
+          Pacman.pacmanPosition = 100;
+          Pacman.move();
+        }
+        else if (Pacman.pacmanPosition === 319) {
+          Pacman.pacmanPosition = 300;
+          Pacman.move();
+        }
+        else if (Board.locations[Pacman.pacmanPosition].column < 19) {
           Pacman.moveRight();
         }
       }
       // left arrow key
       else if (event.keyCode == '37') {
         // only move left if you are within the board
-        if (Board.locations[Pacman.pacmanPosition].column > 0) {
+        if (Pacman.pacmanPosition === 100) {
+          Pacman.pacmanPosition = 119;
+          Pacman.move();
+        }
+        else if (Pacman.pacmanPosition === 300) {
+          Pacman.pacmanPosition = 319;
+          Pacman.move();
+        }
+        else if (Board.locations[Pacman.pacmanPosition].column > 0) {
           Pacman.moveLeft();
         }
       }

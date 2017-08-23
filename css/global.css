@@ -14,12 +14,21 @@
   background-color: black;
 }
 
+.row0 {
+  border-top: solid 5px rgb(255, 184, 151);
+
+}
+
+.row19 {
+  border-bottom: solid 5px rgb(255, 184, 151);
+}
+
 .circle {
   background-color: white;
   border-radius: 5px;
   width: 8px;
   margin: 2px auto;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 .circle:before{
@@ -86,12 +95,4 @@ button, li {
 
 body {
   background-color: black;
-}
-
-.row0 {
-  border-top: solid 5px rgb(255, 184, 151);
-}
-
-.row19 {
-  border-bottom: solid 5px rgb(255, 184, 151);
 }

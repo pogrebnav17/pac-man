@@ -22,7 +22,7 @@ var Game = (function() {
       Game.$scoreBoard.text(`Score: ${Game.score}`);
       Game.setHighestScore();
       //initialize pacman position
-      Pacman.pacmanPosition = 0;
+      Pacman.pacmanPosition = 209;
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
       Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
       Game.$square = $(`#${Pacman.pacmanPosition}`);
@@ -30,7 +30,7 @@ var Game = (function() {
       Game.$square.append(Pacman.$pacman);
 
       //initialize ghost position
-      Ghost.ghostPosition = 399;
+      Ghost.ghostPosition = 398;
       Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
@@ -38,8 +38,34 @@ var Game = (function() {
       Ghost.$ghostSquare.append(Ghost.$ghost);
       Ghost.moveGhost();
 
-      $('#20').attr('style', 'border-left: solid 5px rgb(255, 184, 151);');
-      $('#circle-20').attr('style', 'padding: 2px;');
+      var leftBorder = [];
+      var rightBorder = [];
+      var leftCount = 0;
+      var rightCount = 19;
+      for (let i = 0; i < 20; i ++) {
+        leftBorder.push(leftCount);
+        leftCount += 20;
+
+        rightBorder.push(rightCount);
+        rightCount += 20;
+      }
+
+      // create left board border
+      for (let i = 0; i < leftBorder.length; i ++) {
+        if (leftBorder[i] !== 100 && leftBorder[i] !== 300) {
+          $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px rgb(255, 184, 151);');
+        } else {
+          $(`#${leftBorder[i]}`).attr('style', 'border-left: solid 5px black;');
+        }
+      }
+      // create right board border
+      for (let i = 0; i < rightBorder.length; i ++) {
+        if (rightBorder[i] !== 119 && rightBorder[i] !== 319) {
+          $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px rgb(255, 184, 151);');
+        } else {
+          $(`#${rightBorder[i]}`).attr('style', 'border-right: solid 5px black;');
+        }
+      }
 
     },
     addPoint: function() {
