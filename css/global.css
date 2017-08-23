@@ -152,10 +152,9 @@ body {
 
 .top, .bottom {
   margin-left: 15px;
-  height: 10px;
+  height: 20px;
   width: 420px;
   background-color: black;
-  /*margin-bottom: 4px;*/
 }
 
 #vertical {
@@ -164,9 +163,7 @@ body {
 }
 
 .top {
-  border-top: solid 5px rgb(255, 184, 151);
-  border-left: solid 5px rgb(255, 184, 151);
-  border-right: solid 5px rgb(255, 184, 151);
+  border-bottom: solid 5px rgb(255, 184, 151);
 }
 .bottom {
   border-top: solid 5px rgb(255, 184, 151);
