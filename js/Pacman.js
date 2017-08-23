@@ -4,11 +4,13 @@ var Pacman =(function() {
   return {
     pacmanPosition: null,
     $pacman: null,
+    $pacmanGif: $('<img>').attr('src', 'gifs/pacman.gif').attr('alt', 'pacman').attr('id', 'pacman-image'),
     move: function() {
       // removes pacman from the board and re-renders pacman at the new given postion
       Pacman.$pacman.remove();
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
-      Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman>');
+      // Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
+      Pacman.$pacman.append(Pacman.$pacmanGif);
       Game.$square = $(`#${Pacman.pacmanPosition}`);
       Game.$square.append(Pacman.$pacman);
       Game.addPoint();
@@ -23,14 +25,17 @@ var Pacman =(function() {
     moveLeft: function() {
       Pacman.pacmanPosition --;
       Pacman.move();
+      Pacman.$pacman.attr('style', 'transform: scaleX(-1)');
     },
     moveDown: function() {
       Pacman.pacmanPosition += 20;
       Pacman.move();
+      Pacman.$pacman.attr('style', 'transform: rotate(90deg)');
     },
     moveUp: function() {
       Pacman.pacmanPosition -= 20;
       Pacman.move();
+      Pacman.$pacman.attr('style', 'transform: rotate(-90deg)');
     }
   }
 })();

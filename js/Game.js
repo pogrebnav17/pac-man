@@ -23,7 +23,7 @@ var Game = (function() {
       //initialize pacman position
       Pacman.pacmanPosition = 0;
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
-      Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman>');
+      Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
       Game.$square = $(`#${Pacman.pacmanPosition}`);
       $(`#circle-${Pacman.pacmanPosition}`).remove();
       Game.$square.append(Pacman.$pacman);

@@ -13,38 +13,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var spacebarCount = 0;
   // move the pacman depending to the arrow key pressed by user
   document.onkeydown = function(event) {
-    event.preventDefault();
-    // right arrow key
-    if (event.keyCode == '39') {
-      // only move right if you are within the board
-      if (Board.locations[Pacman.pacmanPosition].column < 19) {
-        Pacman.moveRight();
+    // only let pacman move if the game has not been paused
+    if (spacebarCount === 0) {
+      // right arrow key
+      if (event.keyCode == '39') {
+        // only move right if you are within the board
+        if (Board.locations[Pacman.pacmanPosition].column < 19) {
+          Pacman.moveRight();
+        }
+      }
+      // left arrow key
+      else if (event.keyCode == '37') {
+        // only move left if you are within the board
+        if (Board.locations[Pacman.pacmanPosition].column > 0) {
+          Pacman.moveLeft();
+        }
+      }
+      // down arrow key
+      else if (event.keyCode == '40') {
+        // only move down if you are within the board
+        if (Board.locations[Pacman.pacmanPosition].row < 19) {
+          Pacman.moveDown();
+        }
+      }
+      // up arrow key
+      else if (event.keyCode == '38') {
+        // only move up if you are within the board
+        if (Board.locations[Pacman.pacmanPosition].row > 0) {
+          Pacman.moveUp();
+        }
       }
     }
-    // left arrow key
-    else if (event.keyCode == '37') {
-      // only move left if you are within the board
-      if (Board.locations[Pacman.pacmanPosition].column > 0) {
-        Pacman.moveLeft();
-      }
-    }
-    // down arrow key
-    else if (event.keyCode == '40') {
-      // only move down if you are within the board
-      if (Board.locations[Pacman.pacmanPosition].row < 19) {
-        Pacman.moveDown();
-      }
-    }
-    // up arrow key
-    else if (event.keyCode == '38') {
-      // only move up if you are within the board
-      if (Board.locations[Pacman.pacmanPosition].row > 0) {
-        Pacman.moveUp();
-      }
-    }
-    else if (event.keyCode == '32') {
+
+    if (event.keyCode == '32') {
       // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses.
-      if (spacebarCount % 2 === 0) {
+      if (spacebarCount === 0) {
         Ghost.pause();
         spacebarCount ++;
       }
