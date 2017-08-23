@@ -93,7 +93,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $instructionsButton.text("Show Instructions");
     }
   })
-
-
-
 });
