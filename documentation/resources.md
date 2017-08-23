@@ -12,5 +12,7 @@ Project Resources
 
 - Ghost gif: https://giphy.com/gifs/pac-man-2g70BcKeKzRQc/
 
+- Placing ghost gif over the squares as it moves: https://discourse.wicg.io/t/position-an-element-relatively-to-another-element-from-anywhere-in-the-dom/968
+
 Other resources:
 https://www.w3school.com

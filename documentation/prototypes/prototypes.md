@@ -7,4 +7,7 @@ Prototype #3: New Game button lets the user restart the game but keeps the score
 
 
 IN PROGRESS
-Prototype #4: Have ghost only skip the divs not add on the dot divs as it goes. Don't let pac-man or the ghost to be able to run off the board. Instructions button shows/hides the instructions of the game. At the end of the game, if the player has at least 150 points, let them know they have won level 0. 
+Prototype #4: Have ghost only skip the divs not add on the dot divs as it goes. Don't let pac-man or the ghost to be able to run off the board. Instructions button shows/hides the instructions of the game. At the end of the game, if the player has at least 150 points, let them know they have won level 0.
+
+
+Prototype #5: Pac-man turns the correct direction toward the circles when moving. Pac-man is also disabled from moving when the space bar is hit. 
