@@ -1,5 +1,5 @@
 Author: Nika Pogrebna
-Deployed website: https://pogrebnav17.github.io/pac-man/
+Deployed website: https://pogrebnav17.github.io/pac-man-2/
 Trello Board: https://trello.com/b/WSjePpGJ
 
 
