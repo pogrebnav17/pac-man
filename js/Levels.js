@@ -2,7 +2,6 @@ console.log("Levels.js connected");
 
 var Levels = (function() {
   return {
-    $levelUpText: null,
     speed: 1000,
     setSpeed: function() {
       return Levels.speed;

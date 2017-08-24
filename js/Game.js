@@ -61,7 +61,6 @@ var Game = (function() {
       $highestScore.text(`Highest score: ${Game.highestScore}`);
     },
     newGame: function() {
-      $('#level').text
       $('#level-up').remove();
       $('#game-over').remove();
       $('#you-win').remove();
@@ -78,7 +77,7 @@ var Game = (function() {
         Ghost.pause();
         Ghost.$ghost.remove();
         Game.spacebarCount = 1;
-        var $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
+        $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($youWinText);
