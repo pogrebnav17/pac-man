@@ -41,7 +41,7 @@ var Game = (function() {
       //initialize ghost2 position
       Ghost2.ghostPosition = 115;
       Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost2.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
+      Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
       Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
       Ghost2.$ghostSquare.append(Ghost2.$ghost);
 
