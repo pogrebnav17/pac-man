@@ -48,6 +48,11 @@
 
 .buttons {
   margin-bottom: 20px;
+  margin-left:90px;
+}
+
+#new-game {
+  margin-right: 30px;
 }
 
 .game-div {
@@ -187,6 +192,7 @@ body {
 
 header {
   margin: 40px;
+  margin-left: 80px;
   text-align: left;
 }
 
@@ -196,6 +202,11 @@ html, body {
   margin: 0;
   background: black;
 }
+
+.btn:focus {
+  outline: none;
+}
+
 /*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
 #game-over {
   font-size: 8em;
