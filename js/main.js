@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var $newGameButton = $('#new-game');
   $newGameButton.on('click', function() {
     Game.spacebarCount === 0;
+    $('#level-up').remove();
     $('#start-div').remove();
     $('#game-over').remove();
     $('#you-win').remove();

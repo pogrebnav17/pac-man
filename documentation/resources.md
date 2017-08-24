@@ -22,5 +22,9 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Fixing button defaults: https://stackoverflow.com/questions/19053181/how-to-remove-focus-around-buttons-on-click
 
+- Centering: https://www.w3schools.com/css/css_align.asp
+
+- Centering flex boxes: https://stackoverflow.com/questions/38896055/how-to-center-align-a-flexbox-container
+
 Other resources:
 https://www.w3school.com

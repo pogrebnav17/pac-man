@@ -61,6 +61,8 @@ var Game = (function() {
       $highestScore.text(`Highest score: ${Game.highestScore}`);
     },
     newGame: function() {
+      $('#level').text
+      $('#level-up').remove();
       $('#game-over').remove();
       $('#you-win').remove();
       Pacman.$pacman.remove();
@@ -72,7 +74,7 @@ var Game = (function() {
       Game.initializeGame();
     },
     youWin: function() {
-      if (Game.getScore() === 1200) {
+      if (Game.getScore() === 12) {
         Ghost.pause();
         Ghost.$ghost.remove();
         Game.spacebarCount = 1;
