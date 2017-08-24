@@ -16,6 +16,7 @@ var Ghost = (function() {
         $('#user-text').append($gameOverText);
         // Pause the ghost from moving
         Ghost.pause();
+        Pacman.$pacman.remove();
         // show the text animation for 3 seconds before removing it and restarting the game
         setTimeout(function() {
           $('#game-over').remove();
