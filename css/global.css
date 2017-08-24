@@ -1,4 +1,8 @@
 
+
+
+
+
 .center {
   margin: auto;
   width: 100%;
@@ -77,10 +81,6 @@
   float: left;
 }
 
-#instructions {
-  margin-left: 10%;
-}
-
 .level-and-score {
   display: flex;
   flex-direction: row;
@@ -107,6 +107,14 @@ p, li, h3 {
 
 button, li {
   font-size: 1.5em;
+}
+
+li {
+  text-align: left;
+}
+
+#instructions {
+  width: 600px;
 }
 
 .divy {
@@ -199,6 +207,10 @@ button, li {
 
 .level-and-score p {
   margin-top: 30px;
+}
+
+#highest {
+  margin-bottom: 50px;
 }
 
 html, body {

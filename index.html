@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <title>Pac-man</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="Bootstrap" charset="utf-8" />
-    <link rel="stylesheet" href="css/global.css" media="screen">
-  </head>
-  <body>
-    <div class="center container">
-      <header class='center'>
-        <h1>Pac-man</h1>
-      </header>
-      <div class="center game-div">
-        <div class="top-panel">
-          <div class="buttons center">
-            <button class="center btn" id="new-game">New Game</button>
-            <button class="center btn" id="instructions-button">Show Instructions</button>
-          </div>
-          <div id='start-div'></div>
-        </div>
-        <div class="center" id='vertical'>
-          <div id='user-text'></div>
-          <div class='center top'></div>
-          <div id='horizontal'>
-            <div class="divy">
-              <div class='left'></div>
-              <div class='left-small'></div>
-              <div class='left-middle'></div>
-              <div class='left-small'></div>
-              <div class='left-bottom'></div>
-            </div>
-            <div id="board"></div>
-            <div class="divy">
-              <div class='right'></div>
-              <div class='right-small'></div>
-              <div class='right-middle'></div>
-              <div class='right-small'></div>
-              <div class='right-bottom'></div>
-            </div>
-          </div>
-          <div class='center bottom'></div>
-        </div>
-        <section class="score-board">
-          <div class="level-and-score">
-              <p id="level"></p>
-              <img src='gifs/cherry.gif' alt='cherry' id='cherry'>
-              <p id='score'>Score: 0</p>
-          </div>
-          <div>
-            <p id='highest'></p>
-          </div>
-        </section>
-      </div>
-        <div class="game-div" id="instructions">
-          <h3>Instructions</h3>
-          <ul>
-            <li>To pause the game press the SPACEBAR</li>
-            <li>Get as many points as you can before the ghost catches you</li>
-            <li>To pass level 0, you must get 150 points</li>
-            <li>Your Pac-man may not go outside the borders of the board</li>
-          </ul>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="js/App.js" charset="utf-8"></script>
-    <script src="js/Board.js" charset="utf-8"></script>
-    <script src="js/Game.js" charset="utf-8"></script>
-    <script src="js/Ghost.js" charset="utf-8"></script>
-    <script src="js/Pacman.js" charset="utf-8"></script>
-    <script src="js/Levels.js" charset="utf-8"></script>
-    <script src="js/main.js" charset="utf-8"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <title>Pac-man</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="Bootstrap" charset="utf-8" />
+  <link rel="stylesheet" href="css/global.css" media="screen">
+</head>
+
+<body>
+  <div class="center container">
+    <header class='center'>
+      <h1>Pac-man</h1>
+    </header>
+    <div class="center game-div">
+      <div class="top-panel">
+        <div class="buttons center">
+          <button class="center btn" id="new-game">New Game</button>
+          <button class="center btn" id="instructions-button">Show Instructions</button>
+        </div>
+        <div id='start-div'></div>
+      </div>
+      <div class="center" id='vertical'>
+        <div id='user-text'></div>
+        <div class='center top'></div>
+        <div id='horizontal'>
+          <div class="divy">
+            <div class='left'></div>
+            <div class='left-small'></div>
+            <div class='left-middle'></div>
+            <div class='left-small'></div>
+            <div class='left-bottom'></div>
+          </div>
+          <div id="board"></div>
+          <div class="divy">
+            <div class='right'></div>
+            <div class='right-small'></div>
+            <div class='right-middle'></div>
+            <div class='right-small'></div>
+            <div class='right-bottom'></div>
+          </div>
+        </div>
+        <div class='center bottom'></div>
+      </div>
+      <section class="score-board">
+        <div class="level-and-score">
+          <p id="level"></p>
+          <img src='gifs/cherry.gif' alt='cherry' id='cherry'>
+          <p id='score'>Score: 0</p>
+        </div>
+        <div>
+          <p id='highest'></p>
+        </div>
+      </section>
+    </div>
+    <div class="center instruction-div" id="instructions">
+      <h3>Instructions</h3>
+      <ul>
+        <li>To pause/unpause the game press the SPACEBAR</li>
+        <li>Get as many points as you can before the ghost catches you!</li>
+        <li>To get to the next level you have to get a certain number of points</li>
+        <li>Your Pac-man can run off the board where there are escape and return on the other side</li>
+        <li>With each level the ghost speeds up!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="js/App.js" charset="utf-8"></script>
+  <script src="js/Board.js" charset="utf-8"></script>
+  <script src="js/Game.js" charset="utf-8"></script>
+  <script src="js/Ghost.js" charset="utf-8"></script>
+  <script src="js/Pacman.js" charset="utf-8"></script>
+  <script src="js/Levels.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+
 </html>
