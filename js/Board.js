@@ -23,6 +23,13 @@ var Board = (function() {
         Board.locations[i] = {row: rows[i], column: columns[i]};
       }
       $('#board').prepend(Board.$board);
+      // add id to each square div and circle div with their index number
+      var $squareDivs = $('.board .square');
+      var $circleDivs = $('.circle');
+      for (var i = 0; i < $squareDivs.length; i ++) {
+        $squareDivs[i].id = i;
+        $circleDivs[i].id = 'circle-' + i;
+      }
     }
   }
 })();

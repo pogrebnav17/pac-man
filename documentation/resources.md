@@ -4,9 +4,7 @@ Project Resources
 
 - Key codes: https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 
-- Red circles inside the squares: https://stackoverflow.com/questions/36921896/aspect-ratio-circle-inside-square-div
-
-- Fade in fade out of ghost square: https://stackoverflow.com/questions/10385950/how-to-get-a-div-to-randomly-move-around-a-page-using-jquery-or-css
+- White circles inside the squares: https://stackoverflow.com/questions/36921896/aspect-ratio-circle-inside-square-div
 
 - Pac-man gif: https://giphy.com/gifs/pacman-E3hcDoDfU9Fu/
 
@@ -17,6 +15,8 @@ Project Resources
 - Flipping and rotating pac-man image:
 https://css-tricks.com/snippets/css/flip-an-image/
 https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new-image
+
+- Pac-man cherry gif: http://www.classicgaming.cc/classics/pac-man/web-art
 
 Other resources:
 https://www.w3school.com

@@ -4,42 +4,32 @@ console.log("Game.js connected");
 var Game = (function() {
   return {
     $scoreBoard: $('#score'),
-    $square: null,
+    $pacmanSquare: null,
     score: 0,
     highestScore: 0,
     scoreHistory: [],
     initializeGame: function() {
       Board.createBoard(); // create board
-      // label each square with its number
-      var $squareDivs = $('.board .square');
-      var $circleDivs = $('.circle');
-      for (var i = 0; i < $squareDivs.length; i ++) {
-        $squareDivs[i].id = i;
-        $circleDivs[i].id = 'circle-' + i;
-      }
-      Game.score = 0;
-      Game.$scoreBoard.text(`Score: ${Game.score}`);
-      Game.setHighestScore();
+      Game.setHighestScore(); // set the highest score
       //initialize pacman position
       Pacman.pacmanPosition = 209;
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
       Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
-      Game.$square = $(`#${Pacman.pacmanPosition}`);
+      Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
       $(`#circle-${Pacman.pacmanPosition}`).remove();
-      Game.$square.append(Pacman.$pacman);
+      Game.$pacmanSquare.append(Pacman.$pacman);
 
       //initialize ghost position
       Ghost.ghostPosition = 398;
       Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost>');
+      Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
-      // $(`#circle-${Ghost.ghostPosition}`).hide();
       Ghost.$ghostSquare.append(Ghost.$ghost);
       Ghost.moveGhost();
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
-      // remove the red dot and add 1 point to the score
+      // hide the white dot and add 1 point to the score
       if (!$squareWithCircle.is(':hidden')) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
         Game.score ++;
@@ -57,6 +47,8 @@ var Game = (function() {
       Pacman.$pacman.remove();
       Game.scoreHistory.push(Game.score);
       Board.$board.remove();
+      Game.score = 0;
+      Game.$scoreBoard.text(`Score: ${Game.score}`);
       Game.initializeGame();
     }
   }

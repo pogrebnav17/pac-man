@@ -36,7 +36,7 @@
 }
 
 
-img {
+#pacman-image, #ghost-image {
   width: 15px;
   height: 15px;
   margin-bottom: 30px;
@@ -58,8 +58,9 @@ img {
   margin-left: 10%;
 }
 
-.score-board .level-and-score {
-  float: left;
+.level-and-score {
+  display: flex;
+  flex-direction: row;
 }
 
 .score-board {
@@ -167,4 +168,24 @@ body {
 }
 .bottom {
   border-top: solid 5px rgb(255, 184, 151);
+}
+
+#cherry {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 20px;
+  margin-left: 80px;
+}
+
+.level-and-score p {
+  margin-top: 30px;
+}
+
+.score-board {
+  margin-left: 45px;
+}
+
+header {
+  margin: 40px;
+  text-align: left;
 }

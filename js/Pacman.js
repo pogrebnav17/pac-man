@@ -10,8 +10,8 @@ var Pacman =(function() {
       Pacman.$pacman.remove();
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
       Pacman.$pacman.append(Pacman.$pacmanGif);
-      Game.$square = $(`#${Pacman.pacmanPosition}`);
-      Game.$square.append(Pacman.$pacman);
+      Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
+      Game.$pacmanSquare.append(Pacman.$pacman);
       Game.addPoint();
       // check if you ran into a ghost
       Ghost.checkGhost();
