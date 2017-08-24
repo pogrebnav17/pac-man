@@ -212,7 +212,7 @@ html, body {
 }
 
 /*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
-#game-over, #level-up {
+#game-over, #level-up, #you-win {
   font-size: 8em;
   text-align: center;
   animation-name: example;
