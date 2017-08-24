@@ -14,16 +14,18 @@
     <link rel="stylesheet" href="css/global.css" media="screen">
   </head>
   <body>
-    <div class="container">
-      <header>
+    <div class="center container">
+      <header class='center'>
         <h1>Pac-man</h1>
       </header>
-      <div class="game-div">
-        <div class="buttons">
-          <button class="btn" id="new-game">New Game</button>
-          <button class="btn" id="instructions-button">Show Instructions</button>
+      <div class="center game-div">
+        <div class="top-panel">
+          <div class="buttons center">
+            <button class="center btn" id="new-game">New Game</button>
+            <button class="center btn" id="instructions-button">Show Instructions</button>
+          </div>
         </div>
-        <div id='vertical'>
+        <div class="center" id='vertical'>
           <div id='user-text'></div>
           <div class='top'></div>
           <div id='horizontal'>
@@ -46,11 +48,10 @@
           <div class='bottom'></div>
         </div>
         <section class="score-board">
-
           <div class="level-and-score">
-            <p id="level"></p>
-            <img src='gifs/cherry.gif' alt='cherry' id='cherry'>
-            <p id='score'>Score: 0</p>
+              <p id="level"></p>
+              <img src='gifs/cherry.gif' alt='cherry' id='cherry'>
+              <p id='score'>Score: 0</p>
           </div>
           <div>
             <p id='highest'></p>

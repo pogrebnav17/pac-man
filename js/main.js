@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $newGameButton.on('click', function() {
     Game.spacebarCount === 0;
     $('#start-div').remove();
+    $('#game-over').remove();
+    $('#you-win').remove();
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)

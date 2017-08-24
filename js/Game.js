@@ -36,9 +36,9 @@ var Game = (function() {
       // user must press spacebar to play
       Game.spacebarCount = 1;
       var $startDiv = $("<div id='start-div'></div>");
-      var $startText = $(`<p id='start-text'>Press SPACEBAR to start</p>`);
+      var $startText = $(`<p id='start-text'>Press SPACEBAR to start</p>`).addClass('center');
       $startDiv.append($startText);
-      $('.buttons').append($startDiv);
+      $('.top-panel').append($startDiv);
       if (Game.spacebarCount === 0) {
         Ghost.moveGhost();
       }
@@ -61,6 +61,8 @@ var Game = (function() {
       $highestScore.text(`Highest score: ${Game.highestScore}`);
     },
     newGame: function() {
+      $('#game-over').remove();
+      $('#you-win').remove();
       Pacman.$pacman.remove();
       Game.scoreHistory.push(Game.score);
       Board.$board.remove();
@@ -68,6 +70,22 @@ var Game = (function() {
       Game.$scoreBoard.text(`Score: ${Game.score}`);
       Game.spacebarCount = 0;
       Game.initializeGame();
+    },
+    youWin: function() {
+      if (Game.getScore() === 1200) {
+        Ghost.pause();
+        Ghost.$ghost.remove();
+        Game.spacebarCount = 1;
+        var $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
+        $('#vertical').attr('style', 'position: relative;');
+        $('#user-text').append($youWinText);
+        // show the text animation for 3 seconds before removing it and restarting the game
+        setTimeout(function() {
+          $('#you-win').remove();
+          Game.newGame();
+        }, 3000);
+      }
     }
   }
 })();
