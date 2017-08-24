@@ -25,6 +25,7 @@ var Ghost = (function() {
       }
     },
     moveGhost: function() {
+      $('#start-div').remove();
       clearInterval(this.interval);
       this.interval = setInterval(function() {
         // remove current ghost, set the square that the ghost will be appended to with position relative

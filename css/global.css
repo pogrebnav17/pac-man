@@ -224,6 +224,11 @@ html, body {
   margin-left: 10px;
 }
 
+#start-div {
+  margin-top: 10px;
+  height: 10px
+}
+
 @keyframes example {
   0% {
     color: lime;

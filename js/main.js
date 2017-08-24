@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // move the pacman depending to the arrow key pressed by user
   document.onkeydown = function(event) {
+    event.preventDefault();
     // only let pacman move if the game has not been paused
     if (Game.spacebarCount === 0) {
       // right arrow key
@@ -77,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // New Game button listener (restarts game)
   var $newGameButton = $('#new-game');
   $newGameButton.on('click', function() {
-    Game.spacebarCount === 0
+    Game.spacebarCount === 0;
+    $('#start-div').remove();
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)

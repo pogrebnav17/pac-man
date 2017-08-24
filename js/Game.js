@@ -33,7 +33,15 @@ var Game = (function() {
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
       Ghost.$ghostSquare.append(Ghost.$ghost);
-      Ghost.moveGhost();
+      // user must press spacebar to play
+      Game.spacebarCount = 1;
+      var $startDiv = $("<div id='start-div'></div>");
+      var $startText = $(`<p id='start-text'>Press SPACEBAR to start</p>`);
+      $startDiv.append($startText);
+      $('.buttons').append($startDiv);
+      if (Game.spacebarCount === 0) {
+        Ghost.moveGhost();
+      }
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
