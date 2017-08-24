@@ -2,6 +2,7 @@ console.log("Ghost.js is connected");
 
 var Ghost = (function() {
   return {
+    $gameOverText: null,
     $ghost: null,
     ghostPosition: null,
     $ghostSquare: null,
@@ -9,7 +10,17 @@ var Ghost = (function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
         console.log("You ran into a ghost! You lose!");
-        Game.newGame();
+        $gameOverText = $("<p id='game-over'>GAME OVER</p>").attr('style', 'position: absolute; transform: translateY(-50%)');
+        $('#vertical').attr('style', 'position: relative;');
+        $('#vertical').prepend($gameOverText);
+        // Game.newGame();
+        if ($gameOverText !== null) {
+
+          setTimeout(function() {
+            $('#game-over').detach();
+            Game.newGame();
+          }, 3000);
+        }
       }
     },
     moveGhost: function() {

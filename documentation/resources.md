@@ -18,5 +18,7 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Pac-man cherry gif: http://www.classicgaming.cc/classics/pac-man/web-art
 
+- Game over animation: https://codepen.io/Octavector/pen/yNoypb
+
 Other resources:
 https://www.w3school.com
