@@ -39,6 +39,7 @@ var Game = (function() {
       Ghost.$ghostSquare.append(Ghost.$ghost);
       // user must press spacebar to play
       Game.spacebarCount = 1;
+      $('#start-text').remove();
       Game.setStartText('start');
       if (Game.spacebarCount === 0) {
         Ghost.moveGhost();
@@ -62,6 +63,7 @@ var Game = (function() {
       $highestScore.text(`Highest score: ${Game.highestScore}`);
     },
     newGame: function() {
+      $('start-text').remove();
       $('#level-up').remove();
       $('#game-over').remove();
       $('#you-win').remove();
