@@ -11,17 +11,16 @@ var Ghost = (function() {
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
         console.log("You ran into a ghost! You lose!");
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(-50%)');
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
-        // $('#vertical').prepend($gameOverText);
-          Ghost.pause();
-        // if ($gameOverText !== null) {
-          setTimeout(function() {
-            $('#game-over').remove();
-            Game.newGame();
-          }, 3000);
-        // }
+        // Pause the ghost from moving
+        Ghost.pause();
+        // show the text animation for 3 seconds before removing it and restarting the game
+        setTimeout(function() {
+          $('#game-over').remove();
+          Game.newGame();
+        }, 3000);
       }
     },
     moveGhost: function() {
