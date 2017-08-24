@@ -20,5 +20,7 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Game over animation: https://codepen.io/Octavector/pen/yNoypb
 
+- Fixing button defaults: https://stackoverflow.com/questions/19053181/how-to-remove-focus-around-buttons-on-click
+
 Other resources:
 https://www.w3school.com
