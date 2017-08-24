@@ -58,6 +58,7 @@ var Game = (function() {
       Board.$board.remove();
       Game.score = 0;
       Game.$scoreBoard.text(`Score: ${Game.score}`);
+      Game.spacebarCount = 0;
       Game.initializeGame();
     }
   }

@@ -9,13 +9,14 @@ var Ghost = (function() {
     checkGhost: function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
+        // Pause the ghost from moving
+        Ghost.pause();
+        Pacman.$pacman.remove();
+        Game.spacebarCount = 1;
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
-        // Pause the ghost from moving
-        Ghost.pause();
-        Pacman.$pacman.remove();
         // show the text animation for 3 seconds before removing it and restarting the game
         setTimeout(function() {
           $('#game-over').remove();
