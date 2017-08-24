@@ -1,4 +1,8 @@
-
+@media only screen and (max-width: 500px) {
+  body {
+    transform: scale(0.8);
+  }
+}
 
 
 
