@@ -14,7 +14,7 @@
 }
 
 .top-panel {
-  height: 150px;
+  height: 80px;
 }
 
 .square {
@@ -59,8 +59,10 @@
 }
 
 .buttons {
-  margin-bottom: 20px;
+  margin-top: 10px;
   width: 300px;
+  display: flex;
+  flex-direction: row;
 }
 
 #new-game {
