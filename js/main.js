@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var Ghost = App.Ghost();
   var Pacman = App.Pacman();
   var Levels = App.Levels();
+  var Ghost2 = App.Ghost2();
 
   // START GAME
   Game.initializeGame();
@@ -66,12 +67,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
       // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses.
       if (Game.spacebarCount === 0) {
         Ghost.pause();
+        Ghost2.pause();
         $('#start-text').remove();
         Game.setStartText('unpause');
         Game.spacebarCount ++;
       }
       else {
         Ghost.moveGhost();
+        Ghost2.moveGhost();
         Game.spacebarCount --;
       }
     }

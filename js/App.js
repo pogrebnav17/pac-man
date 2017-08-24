@@ -16,6 +16,9 @@ var App = (function() {
     },
     Levels: function() {
       return Levels;
+    },
+    Ghost2: function() {
+      return Ghost2;
     }
   }
 })();

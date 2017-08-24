@@ -1,11 +1,15 @@
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   body {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 }
 
-
-
+@media only screen and (max-width: 485px) {
+  body {
+    transform: scale(0.7);
+    margin: 0;
+  }
+}
 
 .center {
   margin: auto;

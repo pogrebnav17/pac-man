@@ -37,12 +37,21 @@ var Game = (function() {
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
       Ghost.$ghostSquare.append(Ghost.$ghost);
+
+      //initialize ghost2 position
+      Ghost2.ghostPosition = 115;
+      Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
+      Ghost2.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
+      Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
+      Ghost2.$ghostSquare.append(Ghost2.$ghost);
+
       // user must press spacebar to play
       Game.spacebarCount = 1;
       $('#start-text').remove();
       Game.setStartText('start');
       if (Game.spacebarCount === 0) {
         Ghost.moveGhost();
+        Ghost2.moveGhost();
       }
     },
     addPoint: function() {
@@ -79,6 +88,8 @@ var Game = (function() {
       if (Game.getScore() === 1200) {
         Ghost.pause();
         Ghost.$ghost.remove();
+        Ghost2.pause();
+        Ghost2.$ghost.remove();
         Game.spacebarCount = 1;
         $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 100000');

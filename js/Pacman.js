@@ -16,6 +16,7 @@ var Pacman =(function() {
       Game.addPoint();
       // check if you ran into a ghost
       Ghost.checkGhost();
+      Ghost2.checkGhost();
     },
     // follow 4 methods change the position of the pacman according to the grid and the direction
     moveRight: function() {
