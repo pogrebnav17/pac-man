@@ -2,6 +2,7 @@ console.log("Levels.js connected");
 
 var Levels = (function() {
   return {
+    $levelUpText: null,
     speed: 1000,
     setSpeed: function() {
       return Levels.speed;
@@ -10,26 +11,36 @@ var Levels = (function() {
     setLevel: function() {
       $('#level').text(`Level: ${Levels.level}`);
     },
+    levelUpAlert: function() {
+      // show user message that they have leveled up
+      $levelUpText = $(`<p id='level-up'>LEVEL ${Levels.level}</p>`);
+      $('#user-text').attr('style', 'position: absolute; transform: translateY(70%);');
+      $('#vertical').attr('style', 'position: relative;');
+      $('#user-text').append($levelUpText);
+      setTimeout(function() {
+        $('#level-up').remove();
+      }, 1000);
+    },
     levelUp: function() {
       if(Game.getScore() === Levels.level0.levelup) {
-        Levels.level ++; //go to level one
-        Levels.setLevel();
-        Levels.speed = Levels.level1.speed;
-        console.log('level 1 speed', Levels.speed);
+        Levels.level ++; // add level
+        Levels.setLevel(); // set level
+        Levels.levelUpAlert(); // alert user of level change
+        Levels.speed = Levels.level1.speed; // set new ghost speed
         Ghost.moveGhost();
       }
       else if (Game.getScore() === Levels.level1.levelup) {
         Levels.level ++;
         Levels.setLevel();
+        Levels.levelUpAlert();
         Levels.speed = Levels.level2.speed;
-        console.log('level 2 speed', Levels.speed);
         Ghost.moveGhost();
       }
       else if (Game.getScore() === Levels.level2.levelup) {
         Levels.level ++;
         Levels.setLevel();
+        Levels.levelUpAlert();
         Levels.speed = Levels.level3.speed;
-        console.log('level 3 speed', Levels.speed);
         Ghost.moveGhost();
       }
     },
@@ -49,8 +60,5 @@ var Levels = (function() {
       speed: 200,
       levelup: 600
     }
-
-
-
   }
 })();

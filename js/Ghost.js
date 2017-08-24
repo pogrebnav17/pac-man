@@ -9,7 +9,6 @@ var Ghost = (function() {
     checkGhost: function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
-        console.log("You ran into a ghost! You lose!");
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
         $('#vertical').attr('style', 'position: relative;');

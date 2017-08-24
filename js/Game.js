@@ -3,6 +3,7 @@ console.log("Game.js connected");
 
 var Game = (function() {
   return {
+    spacebarCount: 0,
     $scoreBoard: $('#score'),
     $pacmanSquare: null,
     score: 0,
@@ -16,6 +17,7 @@ var Game = (function() {
       Levels.level = 0;
       Levels.speed = 1000;
       Levels.setLevel();
+      Levels.levelUpAlert();
       Game.setHighestScore(); // set the highest score
       //initialize pacman position
       Pacman.pacmanPosition = 209;

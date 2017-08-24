@@ -11,11 +11,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // START GAME
   Game.initializeGame();
 
-  var spacebarCount = 0;
   // move the pacman depending to the arrow key pressed by user
   document.onkeydown = function(event) {
     // only let pacman move if the game has not been paused
-    if (spacebarCount === 0 ) {
+    if (Game.spacebarCount === 0) {
       // right arrow key
       if (event.keyCode == '39') {
         // only move right if you are within the board
@@ -64,13 +63,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     if (event.keyCode == '32') {
       // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses.
-      if (spacebarCount === 0) {
+      if (Game.spacebarCount === 0) {
         Ghost.pause();
-        spacebarCount ++;
+        Game.spacebarCount ++;
       }
       else {
         Ghost.moveGhost();
-        spacebarCount --;
+        Game.spacebarCount --;
       }
     }
   }
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // New Game button listener (restarts game)
   var $newGameButton = $('#new-game');
   $newGameButton.on('click', function() {
-    spacebarCount === 0
+    Game.spacebarCount === 0
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)

@@ -212,12 +212,16 @@ html, body {
 }
 
 /*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
-#game-over {
+#game-over, #level-up {
   font-size: 8em;
   text-align: center;
   animation-name: example;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+}
+
+#level-up {
+  margin-left: 10px;
 }
 
 @keyframes example {
