@@ -2,9 +2,7 @@
 .center {
   margin: auto;
   width: 100%;
-  border: 3px solid green;
   padding: 0 auto;
-  background-color: black;
   text-align: center;
 }
 
@@ -118,6 +116,8 @@ button, li {
 #horizontal {
   display: flex;
   flex-direction: row;
+  text-align: center;
+  justify-content: center;
 }
 
 .left {
@@ -169,7 +169,6 @@ button, li {
 }
 
 .top, .bottom {
-  margin-left: 15px;
   height: 20px;
   width: 420px;
   background-color: black;
@@ -178,6 +177,8 @@ button, li {
 #vertical {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  justify-content: center;
 }
 
 .top {
