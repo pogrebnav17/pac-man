@@ -10,17 +10,18 @@ var Ghost = (function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
         console.log("You ran into a ghost! You lose!");
-        $gameOverText = $("<p id='game-over'>GAME OVER</p>").attr('style', 'position: absolute; transform: translateY(-50%)');
+        $gameOverText = $("<p id='game-over'>GAME OVER</p>");
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(-50%)');
         $('#vertical').attr('style', 'position: relative;');
-        $('#vertical').prepend($gameOverText);
-        // Game.newGame();
-        if ($gameOverText !== null) {
-
+        $('#user-text').append($gameOverText);
+        // $('#vertical').prepend($gameOverText);
+          Ghost.pause();
+        // if ($gameOverText !== null) {
           setTimeout(function() {
-            $('#game-over').detach();
+            $('#game-over').remove();
             Game.newGame();
           }, 3000);
-        }
+        // }
       }
     },
     moveGhost: function() {
