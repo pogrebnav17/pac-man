@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var Game = App.Game();
   var Ghost = App.Ghost();
   var Pacman = App.Pacman();
+  var Levels = App.Levels();
 
   // START GAME
   Game.initializeGame();

@@ -13,6 +13,9 @@ var App = (function() {
     },
     Pacman: function() {
       return Pacman;
+    },
+    Levels: function() {
+      return Levels;
     }
   }
 })();

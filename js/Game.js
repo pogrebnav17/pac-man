@@ -6,10 +6,16 @@ var Game = (function() {
     $scoreBoard: $('#score'),
     $pacmanSquare: null,
     score: 0,
+    getScore: function() {
+      return Game.score;
+    },
     highestScore: 0,
     scoreHistory: [],
     initializeGame: function() {
       Board.createBoard(); // create board
+      Levels.level = 0;
+      Levels.speed = 1000;
+      Levels.setLevel();
       Game.setHighestScore(); // set the highest score
       //initialize pacman position
       Pacman.pacmanPosition = 209;
@@ -32,7 +38,8 @@ var Game = (function() {
       // hide the white dot and add 1 point to the score
       if (!$squareWithCircle.is(':hidden')) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
-        Game.score ++;
+        Game.score += 3;
+        Levels.levelUp();
         Game.$scoreBoard.text(`Score: ${Game.score}`);
       }
     },

@@ -19,7 +19,6 @@ var Ghost = (function() {
         Ghost.$ghost.remove();
         Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');;
 
-        // $(`#circle-${Ghost.ghostPosition}`).show();
         // change position of ghost based on the position of the pac-man
         // get to the same column
         if ((Board.locations[Pacman.pacmanPosition].column) < Board.locations[Ghost.ghostPosition].column) {
@@ -42,7 +41,7 @@ var Ghost = (function() {
         Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
         Ghost.$ghostSquare.prepend(Ghost.$ghost);
         Ghost.checkGhost();
-      },1000);
+      }, Levels.setSpeed());
     },
     pause: function() {
       clearInterval(this.interval);
