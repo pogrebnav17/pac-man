@@ -3,6 +3,10 @@ console.log("Game.js connected");
 
 var Game = (function() {
   return {
+    setStartText: function(text) {
+      $startText = $(`<p id='start-text'>Press SPACEBAR to ${text}</p>`).addClass('center');
+      $('#start-div').append($startText);
+    },
     spacebarCount: 0,
     $scoreBoard: $('#score'),
     $pacmanSquare: null,
@@ -35,10 +39,7 @@ var Game = (function() {
       Ghost.$ghostSquare.append(Ghost.$ghost);
       // user must press spacebar to play
       Game.spacebarCount = 1;
-      var $startDiv = $("<div id='start-div'></div>");
-      var $startText = $(`<p id='start-text'>Press SPACEBAR to start</p>`).addClass('center');
-      $startDiv.append($startText);
-      $('.top-panel').append($startDiv);
+      Game.setStartText('start');
       if (Game.spacebarCount === 0) {
         Ghost.moveGhost();
       }
@@ -78,7 +79,7 @@ var Game = (function() {
         Ghost.$ghost.remove();
         Game.spacebarCount = 1;
         $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 100000');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($youWinText);
         // show the text animation for 3 seconds before removing it and restarting the game

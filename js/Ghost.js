@@ -14,7 +14,7 @@ var Ghost = (function() {
         Pacman.$pacman.remove();
         Game.spacebarCount = 1;
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%)');
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 10000');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
         // show the text animation for 3 seconds before removing it and restarting the game
@@ -25,7 +25,8 @@ var Ghost = (function() {
       }
     },
     moveGhost: function() {
-      $('#start-div').remove();
+      $('#start-text').remove();
+      Game.setStartText('pause');
       clearInterval(this.interval);
       this.interval = setInterval(function() {
         // remove current ghost, set the square that the ghost will be appended to with position relative

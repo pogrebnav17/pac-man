@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       // If spacebar is pressed once, pause the game. If it pressed again unpause. Keep count of the number of presses.
       if (Game.spacebarCount === 0) {
         Ghost.pause();
+        $('#start-text').remove();
+        Game.setStartText('unpause');
         Game.spacebarCount ++;
       }
       else {
@@ -80,9 +82,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $newGameButton.on('click', function() {
     Game.spacebarCount === 0;
     $('#level-up').remove();
-    $('#start-div').remove();
     $('#game-over').remove();
     $('#you-win').remove();
+    $('#start-text').remove();
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)
