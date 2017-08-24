@@ -196,7 +196,7 @@ html, body {
   margin: 0;
   background: black;
 }
-
+/*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
 #game-over {
   font-size: 8em;
   text-align: center;
