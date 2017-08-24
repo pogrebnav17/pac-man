@@ -74,7 +74,7 @@ var Game = (function() {
       Game.initializeGame();
     },
     youWin: function() {
-      if (Game.getScore() === 12) {
+      if (Game.getScore() === 1200) {
         Ghost.pause();
         Ghost.$ghost.remove();
         Game.spacebarCount = 1;
