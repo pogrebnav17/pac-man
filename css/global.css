@@ -11,6 +11,10 @@
   }
 }
 
+audio {
+  display: none;
+}
+
 .center {
   margin: auto;
   width: 100%;

@@ -75,17 +75,22 @@ var Game = (function() {
 
       // play intro music
       Game.controlMusic($('#intro'), 'play');
-
-      // user must press spacebar to play
-      Game.spacebarCount = 1;
-      $('#start-text').remove();
-      Game.setStartText('start');
-      if (Game.spacebarCount === 0) {
+      $('#start-div').append($(`<p id='start-text'>START in 3</p>`).addClass('center'));
+      setTimeout(function() {
+        $('#start-text').remove();
+        $('#start-div').append($(`<p id='start-text'>START in 2</p>`).addClass('center'));
+      }, 1000);
+      setTimeout(function() {
+        $('#start-text').remove();
+        $('#start-div').append($(`<p id='start-text'>START in 1</p>`).addClass('center'));
+      }, 2000);
+      // wait for intro music to finish and start the game automatically!
+      setTimeout(function() {
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();
         Ghost4.moveGhost();
-      }
+      }, 3000);
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
