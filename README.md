@@ -23,10 +23,12 @@ Future features:
 4. Use firebase to keep a record of user's best scores and display top 5 user's usernames and scores (allowing competition between users).
 7. Add a maze.
 8. Give Pac-man multiple lives.
+9. Ghosts move more efficiently towards the pac-man.  
 
 
 Any bugs:
 - User can pressed the space bar to "pause" the game during the countdown before the game actually starts
+- Instructions say user must get 1200 points to win but because the cherry points collected vary based on user play, when user points are checked user will win is the points are equal to 1200 or the next check point above 1200
 
 
 Your biggest wins and challenges:
