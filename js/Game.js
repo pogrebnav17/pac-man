@@ -45,15 +45,15 @@ var Game = (function() {
       setTimeout(function() {
         $('#start-text').remove();
         $('#start-div').append($(`<p id='start-text'>Starting in 2</p>`).addClass('center'));
-      }, 1000);
+      }, 500);
       setTimeout(function() {
         $('#start-text').remove();
         $('#start-div').append($(`<p id='start-text'>Starting in 1</p>`).addClass('center'));
-      }, 2000);
+      }, 1000);
       setTimeout(function() {
         $('#start-text').remove();
         $('#start-div').append($(`<p id='start-text'>START!</p>`).addClass('center'));
-      }, 2400);
+      }, 1500);
 
       //initialize pacman position
       Pacman.pacmanPosition = 209;
@@ -98,7 +98,7 @@ var Game = (function() {
         Ghost2.moveGhost();
         Ghost3.moveGhost();
         Ghost4.moveGhost();
-      }, 3000);
+      }, 2500);
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
