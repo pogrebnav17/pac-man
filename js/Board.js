@@ -3,6 +3,7 @@ console.log("Board.js is connected");
 var Board = (function() {
   return {
     locations: {},
+    fruitLocations: [20, 302, 137],
     $board: null,
     createBoard: function() {
       Board.$board = $('<div>').addClass('board');
@@ -31,18 +32,11 @@ var Board = (function() {
         $circleDivs[i].id = 'circle-' + i;
       }
       // add fruits!
-      $($circleDivs[20]).removeClass('circle');
-      $('#20').css('position', 'relative');
-      $('#circle-20').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
-
-      $($circleDivs[302]).removeClass('circle');
-      $('#302').css('position', 'relative');
-      $('#circle-302').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
-
-      $($circleDivs[137]).removeClass('circle');
-      $('#137').css('position', 'relative');
-      $('#circle-137').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
-
+      for (let i = 0; i < Board.fruitLocations.length; i ++) {
+        $($circleDivs[Board.fruitLocations[i]]).removeClass('circle');
+        $(`#${Board.fruitLocations[i]}`).css('position', 'relative');
+        $(`#circle-${Board.fruitLocations[i]}`).append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
+      }
     }
   }
 })();

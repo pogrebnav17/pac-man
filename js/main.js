@@ -91,10 +91,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var $newGameButton = $('#new-game');
   $newGameButton.on('click', function() {
     Game.spacebarCount === 0;
-    $('#level-up').remove();
-    $('#game-over').remove();
-    $('#you-win').remove();
-    $('#start-text').remove();
     Game.newGame();
   });
   // Instructions button listener (shows and hides instructions)
