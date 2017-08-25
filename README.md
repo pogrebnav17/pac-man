@@ -33,9 +33,12 @@ Your biggest wins and challenges:
 Wins:
 - Figuring out the chasing algorithm for the ghosts to know where Pac-man is
 - Modularizing my code, so that when I wanted to add more ghosts I did not have to do a lot of major changes or have things break.
+- Adding fruit and having the ghosts freeze when Pac-man wins  
 
 Challenges:
 - Making sure all of the overlaying elements were positioned correctly in relationship to parent and had correct z-index
+- Timing the start of the game with the music
+- Allowing the user to pause the game 
 
 
 The game you chose: Pac-man (slightly modified from original)
@@ -51,8 +54,6 @@ The rules of the game:
 
 
 Your process for turning that game into a web application (wireframes, blockers/issues that popped up):
-
-************
-
+I started of with playing around in HTML/JS/CSS to see if I can make a board and fill it with square divs the way I wanted to. Once I did that, I made wireframes of how I wanted my MVP and first prototype to look like. Once I got the visuals, I worked on functionality and fixing any bugs. After getting to a working MVP, I started styling the page more. After having the first couple prototypes, I mainly planned my work out on Trello with steps that I needed to accomplish the next prototype.
 
 ```
