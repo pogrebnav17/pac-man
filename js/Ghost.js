@@ -20,11 +20,15 @@ var Ghost = (function() {
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%);');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
+
+        //play game over music
+        Game.controlMusic($('#death'), 'play');
+
         // show the text animation for 3 seconds before removing it and restarting the game
         setTimeout(function() {
           $('#game-over').remove();
           Game.newGame();
-        }, 3000);
+        }, 2000);
       }
     },
     moveGhost: function() {
