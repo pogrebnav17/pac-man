@@ -27,5 +27,9 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Centering flex boxes: https://stackoverflow.com/questions/38896055/how-to-center-align-a-flexbox-container
 
+- Adding favicon to page tab: https://stackoverflow.com/questions/4888377/how-to-add-a-browser-tab-icon-favicon-for-a-website
+
+- Title image: http://www.classicgaming.cc/classics/pac-man/web-art
+
 Other resources:
 https://www.w3school.com
