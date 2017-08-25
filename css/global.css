@@ -10,13 +10,25 @@
     margin: 0;
   }
 }
+
+#title {
+  border: 10px;
+  box-sizing: content-box;
+}
+
 .center {
   margin: auto;
   width: 100%;
   padding: 0 auto;
   text-align: center;
-  background: url('../images/background.jpg');
 }
+
+.container {
+  background: url('../images/background.jpg');
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #user-text {
   background: none !important;
 }
