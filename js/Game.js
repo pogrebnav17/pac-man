@@ -36,15 +36,19 @@ var Game = (function() {
 
       // play intro music
       Game.controlMusic($('#intro'), 'play');
-      $('#start-div').append($(`<p id='start-text'>START in 3</p>`).addClass('center'));
+      $('#start-div').append($(`<p id='start-text'>Starting in 3</p>`).addClass('center'));
       setTimeout(function() {
         $('#start-text').remove();
-        $('#start-div').append($(`<p id='start-text'>START in 2</p>`).addClass('center'));
+        $('#start-div').append($(`<p id='start-text'>Starting in 2</p>`).addClass('center'));
       }, 1000);
       setTimeout(function() {
         $('#start-text').remove();
-        $('#start-div').append($(`<p id='start-text'>START in 1</p>`).addClass('center'));
+        $('#start-div').append($(`<p id='start-text'>Starting in 1</p>`).addClass('center'));
       }, 2000);
+      setTimeout(function() {
+        $('#start-text').remove();
+        $('#start-div').append($(`<p id='start-text'>START!</p>`).addClass('center'));
+      }, 2400);
 
 
       setTimeout(function() {
