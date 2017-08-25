@@ -30,7 +30,7 @@ var Board = (function() {
         $squareDivs[i].id = i;
         $circleDivs[i].id = 'circle-' + i;
       }
-
+      // add fruits!
       $($circleDivs[20]).removeClass('circle');
       $('#circle-20').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
 

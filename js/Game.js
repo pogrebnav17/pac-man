@@ -94,10 +94,15 @@ var Game = (function() {
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
-      // hide the white dot and add 1 point to the score
+      // hide the white dot and add 3 points to the score
       if (!$squareWithCircle.is(':hidden') && Pacman.pacmanPosition !== 209) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
-        Game.controlMusic($('#chomp'), 'play');
+        if (Pacman.pacmanPosition === 20 || Pacman.pacmanPosition === 302 || Pacman.pacmanPosition === 137) {
+          Game.controlMusic($('#eatfruit'), 'play');
+        }
+        else {
+          Game.controlMusic($('#chomp'), 'play');
+        }
         Game.score += 3;
         Levels.levelUp();
         Game.$scoreBoard.text(`Score: ${Game.score}`);
