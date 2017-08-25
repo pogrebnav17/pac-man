@@ -15,6 +15,11 @@ audio {
   display: none;
 }
 
+#frozen {
+  width: 20px;
+  height: 20px;
+}
+
 #cherry-inline {
   width: 30px;
   height: 30px;

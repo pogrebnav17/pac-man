@@ -15,7 +15,7 @@ Prototype #6: Game has 4 levels (Level 0, Level 1, Level 2, Level 3) with varyin
 Prototype #7: Start text changes to let the user know how to pause and unpause the game. Have a total of 4 ghosts. Add fruit to the board. Pac-man game tab has a small avatar of pac-man next go page title. Add sound to game intro, getting point, eating a fruit, and game over.
 
 IN PROGRESS
-Prototype #8: When pac-man eats cherry, 100 points are added and the ghost freeze for 3 seconds. 
+Prototype #8: When pac-man eats cherry, 100 points are added and the ghost freeze for 3 seconds. Ghosts turn into "frozen" ghosts. 
 
 
 ????User can sign in before starting the game and their highest score and username are displayed in the Leaders Board.

@@ -9,6 +9,8 @@ var Ghost = (function() {
     checkGhost: function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
+        $('#game-over').remove();
+        Pacman.$pacman.remove();
         // Pause the ghost from moving
         Ghost.pause();
         Ghost2.pause();
@@ -27,6 +29,7 @@ var Ghost = (function() {
         // show the text animation for 3 seconds before removing it and restarting the game
         setTimeout(function() {
           $('#game-over').remove();
+          Pacman.$pacman.remove();
           Game.newGame();
         }, 2000);
       }
@@ -38,7 +41,7 @@ var Ghost = (function() {
       this.interval = setInterval(function() {
         // remove current ghost, set the square that the ghost will be appended to with position relative
         Ghost.$ghost.remove();
-        Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');;
+        Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
 
         // change position of ghost based on the position of the pac-man
         // get to the same column

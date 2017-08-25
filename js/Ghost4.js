@@ -9,6 +9,8 @@ var Ghost4 = (function() {
     checkGhost: function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost4.ghostPosition) {
+        $('#game-over').remove();
+        Pacman.$pacman.remove();
         // Pause the ghost from moving
         Ghost.pause();
         Ghost2.pause();
@@ -23,10 +25,11 @@ var Ghost4 = (function() {
 
         //play game over music
         Game.controlMusic($('#death'), 'play');
-        
+
         // show the text animation for 3 seconds before removing it and restarting the game
         setTimeout(function() {
           $('#game-over').remove();
+          Pacman.$pacman.remove();
           Game.newGame();
         }, 3000);
       }
