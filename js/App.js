@@ -22,6 +22,9 @@ var App = (function() {
     },
     Ghost3: function() {
       return Ghost3;
+    },
+    Ghost4: function() {
+      return Ghost4;
     }
   }
 })();

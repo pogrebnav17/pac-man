@@ -1,4 +1,4 @@
-console.log("Ghost.js is connected");
+console.log("Ghost3.js is connected");
 
 var Ghost3 = (function() {
   return {
@@ -10,7 +10,10 @@ var Ghost3 = (function() {
       // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
       if (Pacman.pacmanPosition === Ghost3.ghostPosition) {
         // Pause the ghost from moving
+        Ghost.pause();
+        Ghost2.pause();
         Ghost3.pause();
+        Ghost4.pause();
         Pacman.$pacman.remove();
         Game.spacebarCount = 1;
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");

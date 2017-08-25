@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var Levels = App.Levels();
   var Ghost2 = App.Ghost2();
   var Ghost3 = App.Ghost3();
+  var Ghost4 = App.Ghost4();
 
   // START GAME
   Game.initializeGame();
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         Ghost.pause();
         Ghost2.pause();
         Ghost3.pause();
+        Ghost4.pause();
         $('#start-text').remove();
         Game.setStartText('unpause');
         Game.spacebarCount ++;
@@ -78,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();
+        Ghost4.moveGhost();
         Game.spacebarCount --;
       }
     }

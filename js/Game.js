@@ -32,25 +32,32 @@ var Game = (function() {
       Game.$pacmanSquare.append(Pacman.$pacman);
 
       //initialize ghost position
-      Ghost.ghostPosition = 398;
+      Ghost.ghostPosition = 0;
       Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
       Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
       Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
       Ghost.$ghostSquare.append(Ghost.$ghost);
 
       //initialize ghost2 position
-      Ghost2.ghostPosition = 115;
+      Ghost2.ghostPosition = 19;
       Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
       Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
       Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
       Ghost2.$ghostSquare.append(Ghost2.$ghost);
 
       //initialize ghost3 position
-      Ghost3.ghostPosition = 304;
+      Ghost3.ghostPosition = 380;
       Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
       Ghost3.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
       Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');
       Ghost3.$ghostSquare.append(Ghost3.$ghost);
+
+      //initialize ghost4 position
+      Ghost4.ghostPosition = 399;
+      Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
+      Ghost4.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
+      Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
+      Ghost4.$ghostSquare.append(Ghost4.$ghost);
 
       // user must press spacebar to play
       Game.spacebarCount = 1;
@@ -60,6 +67,7 @@ var Game = (function() {
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();
+        Ghost4.moveGhost();
       }
     },
     addPoint: function() {
@@ -100,6 +108,8 @@ var Game = (function() {
         Ghost2.$ghost.remove();
         Ghost3.pause();
         Ghost3.$ghost.remove();
+        Ghost4.pause();
+        Ghost4.$ghost.remove();
         Game.spacebarCount = 1;
         $youWinText = $("<p id='you-win'>YOU WIN!!!</p>");
         $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 100000');

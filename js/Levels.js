@@ -33,6 +33,7 @@ var Levels = (function() {
           Ghost.moveGhost();
           Ghost2.moveGhost();
           Ghost3.moveGhost();
+          Ghost4.moveGhost();
         }
       }
     },
