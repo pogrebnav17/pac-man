@@ -12,17 +12,8 @@ Prototype #5: Add a maze (borders and 4 exits) to the game and set rules for it.
 
 Prototype #6: Game has 4 levels (Level 0, Level 1, Level 2, Level 3) with varying speeds for the ghost, which increase as the level increases. When a user reaches a certain amount of points and levels up, the game is paused game and "Level up!" message is displayed to user. If the user loses, game is paused, "Game over" is displayed and the game restart after 3 seconds. Game is centered on the page with margins and is responsive.
 
-
-
-
 IN PROGRESS
-Prototype #7: Start text changes to let the user know how to pause and unpause the game.
-
-Pac-man game tab has a small avatar of pac-man next go page title.
-
-Game is mobile enabled.
-
-Add sound. 
+Prototype #7: Start text changes to let the user know how to pause and unpause the game. Add 2 more ghosts. Pac-man game tab has a small avatar of pac-man next go page title. Add sound.
 
 
 Prototype #8: User can sign in before starting the game and their highest score and username are displayed in the Leaders Board.
