@@ -21,26 +21,15 @@ var Levels = (function() {
       }, 1000);
     },
     levelUp: function() {
-      if(Game.getScore() === Levels.level0.levelup) {
+      var level = `level${Levels.level}`;
+      var nextLevel = `level${Levels.level + 1}`;
+      if (Game.getScore() === Levels[level].levelup) {
         Levels.level ++; // add level
         Levels.setLevel(); // set level
         Levels.levelUpAlert(); // alert user of level change
-        Levels.speed = Levels.level1.speed; // set new ghost speed
+        Levels.speed = Levels[nextLevel].speed; // set new ghost speed
         Ghost.moveGhost();
-      }
-      else if (Game.getScore() === Levels.level1.levelup) {
-        Levels.level ++;
-        Levels.setLevel();
-        Levels.levelUpAlert();
-        Levels.speed = Levels.level2.speed;
-        Ghost.moveGhost();
-      }
-      else if (Game.getScore() === Levels.level2.levelup) {
-        Levels.level ++;
-        Levels.setLevel();
-        Levels.levelUpAlert();
-        Levels.speed = Levels.level3.speed;
-        Ghost.moveGhost();
+        Ghost2.moveGhost();
       }
     },
     level0: {
@@ -48,16 +37,28 @@ var Levels = (function() {
       levelup: 99 //points
     },
     level1: {
-      speed: 700,
+      speed: 800,
       levelup: 198
     },
     level2: {
-      speed: 400,
-      levelup: 402
+      speed: 600,
+      levelup: 297
     },
     level3: {
+      speed: 500,
+      levelup: 396
+    },
+    level4: {
+      speed: 400,
+      levelup: 495
+    },
+    level5: {
+      speed: 300,
+      levelup: 594
+    },
+    level6: {
       speed: 200,
-      levelup: 600
+      levelup: 693
     }
   }
 })();

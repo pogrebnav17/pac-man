@@ -43,15 +43,15 @@ var Ghost2 = (function() {
         }
         else {
           // get to the same row
-          if (Board.locations[Pacman.pacmanPosition].row < Board.locations[Ghost.ghostPosition].row) {
+          if (Board.locations[Pacman.pacmanPosition].row < Board.locations[Ghost2.ghostPosition].row) {
             Ghost2.ghostPosition -= 20;
           }
-          else if (Board.locations[Pacman.pacmanPosition].row > Board.locations[Ghost.ghostPosition].row) {
+          else if (Board.locations[Pacman.pacmanPosition].row > Board.locations[Ghost2.ghostPosition].row) {
             Ghost2.ghostPosition += 20;
           }
         }
         // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
-        Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+        Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index = 10000');
         Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
         Ghost2.$ghostSquare.prepend(Ghost2.$ghost);
         Ghost2.checkGhost();
