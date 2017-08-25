@@ -26,7 +26,7 @@ Future features:
 
 
 Any bugs:
--
+- User can pressed the space bar to "pause" the game during the countdown before the game actually starts
 
 
 Your biggest wins and challenges:
@@ -38,7 +38,7 @@ Wins:
 Challenges:
 - Making sure all of the overlaying elements were positioned correctly in relationship to parent and had correct z-index
 - Timing the start of the game with the music
-- Allowing the user to pause the game 
+- Allowing the user to pause the game
 
 
 The game you chose: Pac-man (slightly modified from original)
@@ -51,6 +51,7 @@ The rules of the game:
 4. Get as many points as you can before the ghosts catch you! Ghosts speed up with each level!
 5. Pac-man can run off the board where there is an escape door and return on the other side. Ghosts are confined to the board.
 6. Cherries are worth 100 points and freeze the ghosts for 3 seconds.
+7. You must get 1200 points to win!
 
 
 Your process for turning that game into a web application (wireframes, blockers/issues that popped up):

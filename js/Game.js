@@ -23,6 +23,10 @@ var Game = (function() {
         if (task === 'play') {
           soundFile.trigger('play');
         }
+        if (task === 'pause') {
+          soundFile.trigger('pause');
+          soundFile.prop("currentTime", 0);
+        }
       }
       play_audio('play');
     },
@@ -170,7 +174,9 @@ var Game = (function() {
       Game.initializeGame();
     },
     youWin: function() {
-      if (Game.getScore() === 1200) {
+      if (Game.getScore() >= 100) {
+        // play intro music
+        Game.controlMusic($('#win-sound'), 'play');
         Ghost.pause();
         Ghost.$ghost.remove();
         Ghost2.pause();
@@ -188,7 +194,7 @@ var Game = (function() {
         setTimeout(function() {
           $('#you-win').remove();
           Game.newGame();
-        }, 3000);
+        }, 5500);
       }
     }
   }
