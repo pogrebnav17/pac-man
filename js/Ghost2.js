@@ -2,37 +2,26 @@ console.log("Ghost2.js is connected");
 
 var Ghost2 = (function() {
   return {
-    $gameOverText: null,
     $ghost: null,
     ghostPosition: null,
     $ghostSquare: null,
-    checkGhost: function() {
-      // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
-      if (Pacman.pacmanPosition === Ghost2.ghostPosition) {
-        $('#game-over').remove();
-        Pacman.$pacman.remove();
-        // Pause the ghost from moving
-        Ghost.pause();
-        Ghost2.pause();
-        Ghost3.pause();
-        Ghost4.pause();
-        Pacman.$pacman.remove();
-        Game.spacebarCount = 1;
-        $gameOverText = $("<p id='game-over'>GAME OVER</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 1000000;').addClass('center');
-        $('#horizontal').attr('style', 'position: relative;');
-        $('#user-text').append($gameOverText);
-
-        //play game over music
-        Game.controlMusic($('#death'), 'play');
-
-        // show the text animation for 3 seconds before removing it and restarting the game
-        setTimeout(function() {
-          $('#game-over').remove();
-          Pacman.$pacman.remove();
-          Game.newGame();
-        }, 3000);
-      }
+    initialGhost: function() {
+      Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
+      Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
+      Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
+      Ghost2.$ghostSquare.append(Ghost2.$ghost);
+    },
+    setGhost: function() {
+      Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000');
+      Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
+    },
+    frozen: function() {
+      Ghost2.pause();
+      Ghost2.$ghost.remove();
+      Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
+      Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
+      Ghost2.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
+      Ghost2.$ghostSquare.prepend(Ghost2.$ghost);
     },
     moveGhost: function() {
       $('#start-text').remove();
@@ -61,10 +50,9 @@ var Ghost2 = (function() {
           }
         }
         // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
-        Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
-        Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
+        Ghost2.setGhost();
         Ghost2.$ghostSquare.prepend(Ghost2.$ghost);
-        Ghost2.checkGhost();
+        Game.checkGhost();
       }, Levels.setSpeed());
     },
     pause: function() {

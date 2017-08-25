@@ -30,6 +30,34 @@ var Game = (function() {
       }
       play_audio('play');
     },
+    checkGhost: function() {
+      // if position of the pacman and the ghost are the same, alert the user that they have lost and remove the pacman from the board
+      if (Pacman.pacmanPosition === Ghost.ghostPosition || Pacman.pacmanPosition === Ghost2.ghostPosition || Pacman.pacmanPosition === Ghost3.ghostPosition || Pacman.pacmanPosition === Ghost4.ghostPosition) {
+        $('#game-over').remove();
+        Pacman.$pacman.remove();
+        // Pause the ghost from moving
+        Ghost.pause();
+        Ghost2.pause();
+        Ghost3.pause();
+        Ghost4.pause();
+        Pacman.$pacman.remove();
+        Game.spacebarCount = 1;
+        $gameOverText = $("<p id='game-over'>GAME OVER</p>");
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 1000000;').addClass('center');
+        $('#horizontal').attr('style', 'position: relative;');
+        $('#user-text').append($gameOverText);
+
+        //play game over music
+        Game.controlMusic($('#death'), 'play');
+
+        // show the text animation for 3 seconds before removing it and restarting the game
+        setTimeout(function() {
+          $('#game-over').remove();
+          Pacman.$pacman.remove();
+          Game.newGame();
+        }, 2000);
+      }
+    },
     initializeGame: function() {
       Game.spacebarCount = 1;
       Board.createBoard(); // create board
@@ -63,33 +91,16 @@ var Game = (function() {
       $(`#circle-${Pacman.pacmanPosition}`).remove();
       Game.$pacmanSquare.append(Pacman.$pacman);
 
-      //initialize ghost position
+      //initialize ghost positions
       Ghost.ghostPosition = 0;
-      Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost.$ghost.append('<img src=gifs/ghost.gif alt=ghost id=ghost-image>');
-      Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
-      Ghost.$ghostSquare.append(Ghost.$ghost);
-
-      //initialize ghost2 position
       Ghost2.ghostPosition = 19;
-      Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost2.$ghost.append('<img src=gifs/ghost2.gif alt=ghost id=ghost-image>');
-      Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
-      Ghost2.$ghostSquare.append(Ghost2.$ghost);
-
-      //initialize ghost3 position
       Ghost3.ghostPosition = 380;
-      Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost3.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
-      Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');
-      Ghost3.$ghostSquare.append(Ghost3.$ghost);
-
-      //initialize ghost4 position
       Ghost4.ghostPosition = 399;
-      Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost4.$ghost.append('<img src=gifs/ghost4.gif alt=ghost id=ghost-image>');
-      Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
-      Ghost4.$ghostSquare.append(Ghost4.$ghost);
+
+      Ghost.initialGhost();
+      Ghost2.initialGhost();
+      Ghost3.initialGhost();
+      Ghost4.initialGhost();
 
       // wait for intro music to finish and start the game automatically!
       setTimeout(function() {
@@ -108,34 +119,12 @@ var Game = (function() {
         if (Pacman.pacmanPosition === 20 || Pacman.pacmanPosition === 302 || Pacman.pacmanPosition === 137) {
           Game.controlMusic($('#eatfruit'), 'play');
           Game.score += 100;
-          Ghost.pause();
-          Ghost2.pause();
-          Ghost3.pause();
-          Ghost4.pause();
+
           // change all ghosts to frozen ghosts
-          Ghost.$ghost.remove();
-          Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
-          Ghost.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
-          Ghost.$ghostSquare.prepend(Ghost.$ghost);
-
-          Ghost2.$ghost.remove();
-          Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
-          Ghost2.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
-          Ghost2.$ghostSquare.prepend(Ghost2.$ghost);
-
-          Ghost3.$ghost.remove();
-          Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
-          Ghost3.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
-          Ghost3.$ghostSquare.prepend(Ghost3.$ghost);
-
-          Ghost4.$ghost.remove();
-          Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
-          Ghost4.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
-          Ghost4.$ghostSquare.prepend(Ghost4.$ghost);
+          Ghost.frozen();
+          Ghost2.frozen();
+          Ghost3.frozen();
+          Ghost4.frozen();
 
           // wait 3 seconds before changing the ghosts back and letting them continue the chase
           setTimeout(function() {
