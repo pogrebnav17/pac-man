@@ -32,6 +32,7 @@ var Levels = (function() {
           Levels.speed = Levels[nextLevel].speed; // set new ghost speed
           Ghost.moveGhost();
           Ghost2.moveGhost();
+          Ghost3.moveGhost();
         }
       }
     },

@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var Pacman = App.Pacman();
   var Levels = App.Levels();
   var Ghost2 = App.Ghost2();
+  var Ghost3 = App.Ghost3();
 
   // START GAME
   Game.initializeGame();
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if (Game.spacebarCount === 0) {
         Ghost.pause();
         Ghost2.pause();
+        Ghost3.pause();
         $('#start-text').remove();
         Game.setStartText('unpause');
         Game.spacebarCount ++;
@@ -75,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       else {
         Ghost.moveGhost();
         Ghost2.moveGhost();
+        Ghost3.moveGhost();
         Game.spacebarCount --;
       }
     }
