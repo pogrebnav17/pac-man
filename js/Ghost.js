@@ -11,6 +11,7 @@ var Ghost = (function() {
       if (Pacman.pacmanPosition === Ghost.ghostPosition) {
         // Pause the ghost from moving
         Ghost.pause();
+        Ghost2.pause();
         Pacman.$pacman.remove();
         Game.spacebarCount = 1;
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");

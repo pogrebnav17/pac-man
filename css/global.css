@@ -46,17 +46,23 @@
   box-sizing: content-box;
 }
 
+
 .circle:before{
   content: "";
   display: block;
   padding-top: 100%;
 }
 
-#pacman, #ghost {
+#pacman, #ghost{
   width: 15px;
   height: 15px;
   margin: 0;
   box-sizing: border-box;
+}
+
+#cherry-bonus {
+  width: 20px;
+  height: 20px;
 }
 
 
@@ -232,7 +238,7 @@ html, body {
 }
 
 /*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
-#game-over, #level-up, #you-win {
+#game-over, #level-up, #you-win, #cherry-bonus {
   font-size: 8em;
   text-align: center;
   animation-name: example;

@@ -6,7 +6,8 @@ Project Resources
 
 - White circles inside the squares: https://stackoverflow.com/questions/36921896/aspect-ratio-circle-inside-square-div
 
-- Pac-man gif: https://giphy.com/gifs/pacman-E3hcDoDfU9Fu/
+- Pac-man gifs: https://giphy.com/gifs/pacman-E3hcDoDfU9Fu/
+http://pacman35.blogspot.com/p/personajes.html
 
 - Ghost gif: https://giphy.com/gifs/pac-man-2g70BcKeKzRQc/
 

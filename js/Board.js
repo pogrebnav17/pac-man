@@ -30,6 +30,16 @@ var Board = (function() {
         $squareDivs[i].id = i;
         $circleDivs[i].id = 'circle-' + i;
       }
+
+      $($circleDivs[20]).removeClass('circle');
+      $('#circle-20').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+
+      $($circleDivs[302]).removeClass('circle');
+      $('#circle-302').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+
+      $($circleDivs[137]).removeClass('circle');
+      $('#circle-137').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+
     }
   }
 })();
