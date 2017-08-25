@@ -12,10 +12,10 @@ Prototype #5: Add a maze (borders and 4 exits) to the game and set rules for it.
 
 Prototype #6: Game has 4 levels (Level 0, Level 1, Level 2, Level 3) with varying speeds for the ghost, which increase as the level increases. When a user reaches a certain amount of points and levels up, the game is paused game and "Level up!" message is displayed to user. If the user loses, game is paused, "Game over" is displayed and the game restart after 3 seconds. Game is centered on the page with margins and is responsive.
 
-Prototype #7: Start text changes to let the user know how to pause and unpause the game. Have a total of 4 ghosts. Add fruit to the board. Pac-man game tab has a small avatar of pac-man next go page title. Add sound to game intro, getting point, eating a fruit, and game over.
+Prototype #7: Start text changes to let the user know how to pause and unpause the game. Have a total of 4 ghosts. Add fruit to the board. Pac-man game tab has a small avatar of pac-man next go page title. Add sound to game intro, getting point, eating a fruit, and game over. Added levels 0-6. 
 
 IN PROGRESS
-Prototype #8: When pac-man eats cherry, 100 points are added and the ghost freeze for 3 seconds. Ghosts turn into "frozen" ghosts. 
+Prototype #8: When pac-man eats cherry, 100 points are added and the ghost freeze for 3 seconds. Ghosts turn into "frozen" ghosts.
 
 
 ????User can sign in before starting the game and their highest score and username are displayed in the Leaders Board.

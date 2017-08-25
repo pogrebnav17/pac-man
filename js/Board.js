@@ -32,13 +32,16 @@ var Board = (function() {
       }
       // add fruits!
       $($circleDivs[20]).removeClass('circle');
-      $('#circle-20').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+      $('#20').css('position', 'relative');
+      $('#circle-20').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
 
       $($circleDivs[302]).removeClass('circle');
-      $('#circle-302').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+      $('#302').css('position', 'relative');
+      $('#circle-302').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
 
       $($circleDivs[137]).removeClass('circle');
-      $('#circle-137').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>"));
+      $('#137').css('position', 'relative');
+      $('#circle-137').append($("<img src='gifs/cherry_bonus.gif' id='cherry-bonus'>").css('position', 'relative'));
 
     }
   }

@@ -111,25 +111,25 @@ var Game = (function() {
           // change all ghosts to frozen ghosts
           Ghost.$ghost.remove();
           Ghost.$ghostSquare = $(`#${Ghost.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+          Ghost.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
           Ghost.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
           Ghost.$ghostSquare.prepend(Ghost.$ghost);
 
           Ghost2.$ghost.remove();
           Ghost2.$ghostSquare = $(`#${Ghost2.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+          Ghost2.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
           Ghost2.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
           Ghost2.$ghostSquare.prepend(Ghost2.$ghost);
 
           Ghost3.$ghost.remove();
           Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+          Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
           Ghost3.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
           Ghost3.$ghostSquare.prepend(Ghost3.$ghost);
 
           Ghost4.$ghost.remove();
           Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
-          Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+          Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
           Ghost4.$ghost.append('<img src=images/frozen.png alt=ghost id=frozen>');
           Ghost4.$ghostSquare.prepend(Ghost4.$ghost);
 

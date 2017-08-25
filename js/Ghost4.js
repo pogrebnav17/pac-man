@@ -61,7 +61,7 @@ var Ghost4 = (function() {
           }
         }
         // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
-        Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%)');
+        Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000');
         Ghost4.$ghost.append('<img src=gifs/ghost4.gif alt=ghost id=ghost-image>');
         Ghost4.$ghostSquare.prepend(Ghost4.$ghost);
         Ghost4.checkGhost();

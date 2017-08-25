@@ -41,7 +41,7 @@ var Ghost3 = (function() {
       this.interval = setInterval(function() {
         // remove current ghost, set the square that the ghost will be appended to with position relative
         Ghost3.$ghost.remove();
-        Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');;
+        Ghost3.$ghostSquare = $(`#${Ghost3.ghostPosition}`).attr('style', 'position: relative;');
 
         // change position of ghost based on the position of the pac-man
         // get to the same column
@@ -61,7 +61,7 @@ var Ghost3 = (function() {
           }
         }
         // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
-        Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%);');
+        Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index: 10000;');
         Ghost3.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
         Ghost3.$ghostSquare.prepend(Ghost3.$ghost);
         Ghost3.checkGhost();
