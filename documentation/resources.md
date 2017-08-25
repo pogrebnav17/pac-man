@@ -33,5 +33,13 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Background image: http://www.classicgaming.cc/classics/pac-man/background-pac-man-2.php
 
+- Disabling text background: https://stackoverflow.com/questions/17838007/is-it-possible-to-override-remove-background-noneimportant-with-jquery
+
+- Sounds: http://www.classicgaming.cc/classics/pac-man/sounds
+
+- Playing audio controls: https://stackoverflow.com/questions/9419263/playing-audio-with-javascript
+
 Other resources:
-https://www.w3school.com
+- Instructors and IA's
+- Old labs
+- https://www.w3school.com

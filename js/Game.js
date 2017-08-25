@@ -16,6 +16,20 @@ var Game = (function() {
     },
     highestScore: 0,
     scoreHistory: [],
+    controlMusic: function(soundFile, task) {
+      soundFile.trigger('load');
+      // start intro music
+      function play_audio(task) {
+        if (task === 'play') {
+          soundFile.trigger('play');
+        }
+        else if (task === 'stop') {
+          soundFile.trigger('pause');
+          soundFile.prop("currentTime", 0);
+        }
+      }
+      play_audio('play');
+    },
     initializeGame: function() {
       Board.createBoard(); // create board
       Levels.level = 0;
@@ -59,6 +73,9 @@ var Game = (function() {
       Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
       Ghost4.$ghostSquare.append(Ghost4.$ghost);
 
+      // play intro music
+      Game.controlMusic($('#intro'), 'play');
+
       // user must press spacebar to play
       Game.spacebarCount = 1;
       $('#start-text').remove();
@@ -75,6 +92,7 @@ var Game = (function() {
       // hide the white dot and add 1 point to the score
       if (!$squareWithCircle.is(':hidden')) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
+        Game.controlMusic($('#chomp'), 'play');
         Game.score += 3;
         Levels.levelUp();
         Game.$scoreBoard.text(`Score: ${Game.score}`);
