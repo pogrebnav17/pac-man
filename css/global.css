@@ -10,7 +10,6 @@
     margin: 0;
   }
 }
-
 .center {
   margin: auto;
   width: 100%;
@@ -61,8 +60,12 @@
 }
 
 #cherry-bonus {
-  width: 20px;
+  width: 15px;
   height: 20px;
+  display: block;
+  padding-bottom: 5px;
+  transform: scale(1.5);
+  margin-left: 5px;
 }
 
 
@@ -238,7 +241,7 @@ html, body {
 }
 
 /*Code below was adopted and modified from https://codepen.io/Octavector/pen/yNoypb*/
-#game-over, #level-up, #you-win, #cherry-bonus {
+#game-over, #level-up, #you-win {
   font-size: 8em;
   text-align: center;
   animation-name: example;
