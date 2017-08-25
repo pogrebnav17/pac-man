@@ -24,15 +24,11 @@ var Levels = (function() {
       var level = `level${Levels.level}`;
       var nextLevel = `level${Levels.level + 1}`;
       if (Levels.level < 6) {
-        if (Game.getScore() === Levels[level].levelup) {
+        if (Game.getScore() >= Levels[level].levelup) {
           Levels.level ++; // add level
           Levels.setLevel(); // set level
           Levels.levelUpAlert(); // alert user of level change
           Levels.speed = Levels[nextLevel].speed; // set new ghost speed
-          Ghost.moveGhost();
-          Ghost2.moveGhost();
-          Ghost3.moveGhost();
-          Ghost4.moveGhost();
         }
       }
     },

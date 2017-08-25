@@ -23,10 +23,6 @@ var Game = (function() {
         if (task === 'play') {
           soundFile.trigger('play');
         }
-        else if (task === 'stop') {
-          soundFile.trigger('pause');
-          soundFile.prop("currentTime", 0);
-        }
       }
       play_audio('play');
     },
@@ -95,7 +91,7 @@ var Game = (function() {
         Ghost2.moveGhost();
         Ghost3.moveGhost();
         Ghost4.moveGhost();
-      }, 2000);
+      }, 3000);
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
@@ -104,11 +100,22 @@ var Game = (function() {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
         if (Pacman.pacmanPosition === 20 || Pacman.pacmanPosition === 302 || Pacman.pacmanPosition === 137) {
           Game.controlMusic($('#eatfruit'), 'play');
+          Game.score += 100;
+          Ghost.pause();
+          Ghost2.pause();
+          Ghost3.pause();
+          Ghost4.pause();
+          setTimeout(function() {
+            Ghost.moveGhost();
+            Ghost2.moveGhost();
+            Ghost3.moveGhost();
+            Ghost4.moveGhost();
+          }, 3000);
         }
         else {
           Game.controlMusic($('#chomp'), 'play');
+          Game.score += 3;
         }
-        Game.score += 3;
         Levels.levelUp();
         Game.$scoreBoard.text(`Score: ${Game.score}`);
       }
