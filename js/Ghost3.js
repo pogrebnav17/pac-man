@@ -14,7 +14,7 @@ var Ghost3 = (function() {
         Pacman.$pacman.remove();
         Game.spacebarCount = 1;
         $gameOverText = $("<p id='game-over'>GAME OVER</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 10000');
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%);');
         $('#vertical').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
         // show the text animation for 3 seconds before removing it and restarting the game
@@ -51,7 +51,7 @@ var Ghost3 = (function() {
           }
         }
         // move the ghost with postion absolute to the new square/location by appending "on top" of the current square
-        Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%); z-index = 10000');
+        Ghost3.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-10%);');
         Ghost3.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
         Ghost3.$ghostSquare.prepend(Ghost3.$ghost);
         Ghost3.checkGhost();

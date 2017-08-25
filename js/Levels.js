@@ -13,7 +13,7 @@ var Levels = (function() {
     levelUpAlert: function() {
       // show user message that they have leveled up
       $levelUpText = $(`<p id='level-up'>LEVEL ${Levels.level}</p>`);
-      $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 100000').addClass('center');
+      $('#user-text').attr('style', 'position: absolute; transform: translateY(5%);').addClass('center');
       $('#vertical').attr('style', 'position: relative;');
       $('#user-text').append($levelUpText);
       setTimeout(function() {

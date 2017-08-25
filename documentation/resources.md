@@ -31,5 +31,7 @@ https://stackoverflow.com/questions/42736395/rotate-image-in-javascript-with-new
 
 - Title image: http://www.classicgaming.cc/classics/pac-man/web-art
 
+- Background image: http://www.classicgaming.cc/classics/pac-man/background-pac-man-2.php
+
 Other resources:
 https://www.w3school.com
