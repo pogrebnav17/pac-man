@@ -174,7 +174,7 @@ var Game = (function() {
       Game.initializeGame();
     },
     youWin: function() {
-      if (Game.getScore() >= 100) {
+      if (Game.getScore() >= 1200) {
         // play intro music
         Game.controlMusic($('#win-sound'), 'play');
         Ghost.pause();
