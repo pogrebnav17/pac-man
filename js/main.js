@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         Game.setStartText('unpause');
         Game.spacebarCount ++;
       }
-      else {
+      else if (Game.spacebarCount === 1) {
+        Game.setStartText('pause');
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();

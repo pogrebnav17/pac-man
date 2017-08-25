@@ -27,6 +27,7 @@ var Game = (function() {
       play_audio('play');
     },
     initializeGame: function() {
+      Game.spacebarCount = 1;
       Board.createBoard(); // create board
       Levels.level = 0;
       Levels.speed = 1000;
@@ -50,7 +51,6 @@ var Game = (function() {
         $('#start-div').append($(`<p id='start-text'>START!</p>`).addClass('center'));
       }, 2400);
 
-      Game.spacebarCount = 1;
       //initialize pacman position
       Pacman.pacmanPosition = 209;
       Pacman.$pacman = $('<div>').attr('id', 'pacman');
@@ -83,7 +83,7 @@ var Game = (function() {
       //initialize ghost4 position
       Ghost4.ghostPosition = 399;
       Ghost4.$ghost = $('<div>').attr('id', 'ghost').attr('style', 'position: absolute; transform: translateY(-85%)');
-      Ghost4.$ghost.append('<img src=gifs/ghost3.gif alt=ghost id=ghost-image>');
+      Ghost4.$ghost.append('<img src=gifs/ghost4.gif alt=ghost id=ghost-image>');
       Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
       Ghost4.$ghostSquare.append(Ghost4.$ghost);
 

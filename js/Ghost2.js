@@ -18,9 +18,9 @@ var Ghost2 = (function() {
         Ghost4.pause();
         Pacman.$pacman.remove();
         Game.spacebarCount = 1;
-        $gameOverText = $("<p id='game-over'>GAME OVER</p>");
-        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%);');
-        $('#vertical').attr('style', 'position: relative;');
+        $gameOverText = $("<p id='game-over'>GAME OVER</p>").css('width', '200px');
+        $('#user-text').attr('style', 'position: absolute; transform: translateY(5%); z-index: 1000000; padding-left: 230px').addClass('center');
+        $('#horizontal').attr('style', 'position: relative;');
         $('#user-text').append($gameOverText);
 
         //play game over music
