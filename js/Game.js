@@ -50,13 +50,14 @@ var Game = (function() {
         $('#start-div').append($(`<p id='start-text'>START!</p>`).addClass('center'));
       }, 2400);
 
-        //initialize pacman position
-        Pacman.pacmanPosition = 209;
-        Pacman.$pacman = $('<div>').attr('id', 'pacman');
-        Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
-        Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
-        $(`#circle-${Pacman.pacmanPosition}`).remove();
-        Game.$pacmanSquare.append(Pacman.$pacman);
+      Game.spacebarCount = 1;
+      //initialize pacman position
+      Pacman.pacmanPosition = 209;
+      Pacman.$pacman = $('<div>').attr('id', 'pacman');
+      Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
+      Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
+      $(`#circle-${Pacman.pacmanPosition}`).remove();
+      Game.$pacmanSquare.append(Pacman.$pacman);
 
       //initialize ghost position
       Ghost.ghostPosition = 0;
@@ -88,6 +89,7 @@ var Game = (function() {
 
       // wait for intro music to finish and start the game automatically!
       setTimeout(function() {
+        Game.spacebarCount = 0;
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();
