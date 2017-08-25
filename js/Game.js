@@ -95,7 +95,7 @@ var Game = (function() {
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
       // hide the white dot and add 1 point to the score
-      if (!$squareWithCircle.is(':hidden')) {
+      if (!$squareWithCircle.is(':hidden') && Pacman.pacmanPosition !== 209) {
         $(`#circle-${Pacman.pacmanPosition}`).hide();
         Game.controlMusic($('#chomp'), 'play');
         Game.score += 3;
