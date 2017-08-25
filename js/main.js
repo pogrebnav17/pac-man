@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.onkeydown = function(event) {
     event.preventDefault();
     // only let pacman move if the game has not been paused
-    if (Game.spacebarCount === 0) {
+    if (Game.spacebarCount === 0 && Pacman.$pacman !== null) {
       // right arrow key
       if (event.keyCode == '39') {
         // only move right if you are within the board

@@ -37,13 +37,29 @@ var Game = (function() {
       Levels.setLevel();
       Levels.levelUpAlert();
       Game.setHighestScore(); // set the highest score
-      //initialize pacman position
-      Pacman.pacmanPosition = 209;
-      Pacman.$pacman = $('<div>').attr('id', 'pacman');
-      Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
-      Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
-      $(`#circle-${Pacman.pacmanPosition}`).remove();
-      Game.$pacmanSquare.append(Pacman.$pacman);
+
+      // play intro music
+      Game.controlMusic($('#intro'), 'play');
+      $('#start-div').append($(`<p id='start-text'>START in 3</p>`).addClass('center'));
+      setTimeout(function() {
+        $('#start-text').remove();
+        $('#start-div').append($(`<p id='start-text'>START in 2</p>`).addClass('center'));
+      }, 1000);
+      setTimeout(function() {
+        $('#start-text').remove();
+        $('#start-div').append($(`<p id='start-text'>START in 1</p>`).addClass('center'));
+      }, 2000);
+
+
+      setTimeout(function() {
+        //initialize pacman position
+        Pacman.pacmanPosition = 209;
+        Pacman.$pacman = $('<div>').attr('id', 'pacman');
+        Pacman.$pacman.append('<img src=gifs/pacman.gif alt=pacman id=pacman-image>');
+        Game.$pacmanSquare = $(`#${Pacman.pacmanPosition}`);
+        $(`#circle-${Pacman.pacmanPosition}`).remove();
+        Game.$pacmanSquare.append(Pacman.$pacman);
+      }, 3000);
 
       //initialize ghost position
       Ghost.ghostPosition = 0;
@@ -73,24 +89,13 @@ var Game = (function() {
       Ghost4.$ghostSquare = $(`#${Ghost4.ghostPosition}`).attr('style', 'position: relative;');
       Ghost4.$ghostSquare.append(Ghost4.$ghost);
 
-      // play intro music
-      Game.controlMusic($('#intro'), 'play');
-      $('#start-div').append($(`<p id='start-text'>START in 3</p>`).addClass('center'));
-      setTimeout(function() {
-        $('#start-text').remove();
-        $('#start-div').append($(`<p id='start-text'>START in 2</p>`).addClass('center'));
-      }, 1000);
-      setTimeout(function() {
-        $('#start-text').remove();
-        $('#start-div').append($(`<p id='start-text'>START in 1</p>`).addClass('center'));
-      }, 2000);
       // wait for intro music to finish and start the game automatically!
       setTimeout(function() {
         Ghost.moveGhost();
         Ghost2.moveGhost();
         Ghost3.moveGhost();
         Ghost4.moveGhost();
-      }, 3000);
+      }, 2000);
     },
     addPoint: function() {
       var $squareWithCircle = $(`#circle-${Pacman.pacmanPosition}`);
@@ -116,7 +121,7 @@ var Game = (function() {
       $highestScore.text(`Highest score: ${Game.highestScore}`);
     },
     newGame: function() {
-      $('start-text').remove();
+      $('#start-text').remove();
       $('#level-up').remove();
       $('#game-over').remove();
       $('#you-win').remove();

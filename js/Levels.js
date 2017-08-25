@@ -23,7 +23,6 @@ var Levels = (function() {
     levelUp: function() {
       var level = `level${Levels.level}`;
       var nextLevel = `level${Levels.level + 1}`;
-      console.log(Levels.level);
       if (Levels.level < 6) {
         if (Game.getScore() === Levels[level].levelup) {
           Levels.level ++; // add level
